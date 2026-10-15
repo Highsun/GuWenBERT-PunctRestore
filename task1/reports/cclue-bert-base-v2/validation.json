@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "test_records": 3992,
+  "test_windows": 3992,
+  "characters_exactly_once": 417786,
+  "independent_micro_f1": 0.7076284926768632,
+  "export_validation": {
+    "passed": true,
+    "reference_cases": 4,
+    "task1_source_imported": false,
+    "precision": "bf16",
+    "long_input_rejected_by_task1": true
+  }
+}

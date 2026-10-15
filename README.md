@@ -2,7 +2,16 @@
 
 任务一：用通用中文预训练 BERT 在 CCLUE 古文数据上微调断句标点模型；用古文预训练 GuwenBERT 做同数据对照。任务二：使用冻结主模型，研究长文本串行滑窗与批量滑窗的推理质量和效率。
 
-当前任务一 v2 已完成代码与数据迁移，真实实验结果见 [实验总报告](task1/reports/experiment.md)。任务二仍是独立空骨架，不开展实现或训练。旧版代码和报告保留在历史 Git 标签中；旧语料、派生数据、微调权重和运行输出已按用户要求移除，不能据标签恢复这些本地文件。
+当前任务一 v2 已完成两个模型的三轮真实微调、独立测试与导出验证。详细设置和局限见 [实验总报告](task1/reports/experiment.md)。任务二仍是独立空骨架，不开展实现或训练。旧版代码和报告保留在历史 Git 标签中；旧语料、派生数据、微调权重和运行输出已按用户要求移除，不能据标签恢复这些本地文件。
+
+同一 CCLUE 测试集上的结果：
+
+| 实验 | 标点 micro-F1 | 标点 macro-F1 | 任意标点断句 F1 | 句末边界 F1 |
+| --- | ---: | ---: | ---: | ---: |
+| 通用中文 BERT（主实验） | 70.76% | 55.32% | 85.46% | 72.06% |
+| GuwenBERT（古文基座对照） | 79.86% | 66.11% | 92.65% | 81.84% |
+
+14 项单元测试通过，两个模型分别通过独立导出加载核对。对照的 micro-F1 高 9.09 个百分点，但只有单种子、单配置，且存在词表差异和潜在预训练重叠，不能单独归因为领域预训练。测试文本中的 UNK 字符比例分别约 0.85%/0.14%，详见 [分词审计](task1/reports/tokenization-audit.json)。
 
 ## 任务定位
 
@@ -64,7 +73,7 @@ uv run --locked python scripts/run.py evaluate
 uv run --locked python scripts/run.py report
 ```
 
-对照实验在 `download`、`train`、`verify`、`evaluate`、`report` 命令后添加 `--config configs/cclue_guwenbert.toml`；两个实验都完成后执行 `freeze`，再提交报告并创建新的 `task1-v2.0` 标签。完整说明见 [任务一 README](task1/README.md)。
+对照实验在 `download`、`train`、`verify`、`evaluate`、`report` 命令后添加 `--config configs/cclue_guwenbert.toml`；两个实验都完成后执行 `freeze`，再提交报告并创建新的 `task1-v2.0` 标签；本地已按此流程完成冻结。完整说明见 [任务一 README](task1/README.md)。
 
 数据下载与模型下载需要网络；依赖和权重齐全后的训练/测试可离线运行。训练以开发集选择最佳 epoch，独立测试不参与调参。已完成的实验不能被同名训练覆盖，重新实验须更换 `experiment`，数据规则改变须更换 `dataset_version`。
 

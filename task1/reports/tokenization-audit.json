@@ -1,0 +1,42 @@
+{
+  "cclue-bert-base-v2": {
+    "train": {
+      "characters": 2278777,
+      "characters_with_UNK": 18164,
+      "UNK_character_fraction": 0.007970942308088945,
+      "multi_subtoken_characters": 0
+    },
+    "validation": {
+      "characters": 341563,
+      "characters_with_UNK": 2825,
+      "UNK_character_fraction": 0.008270802165339923,
+      "multi_subtoken_characters": 0
+    },
+    "test": {
+      "characters": 417786,
+      "characters_with_UNK": 3566,
+      "UNK_character_fraction": 0.008535470312552359,
+      "multi_subtoken_characters": 0
+    }
+  },
+  "cclue-guwenbert-v2": {
+    "train": {
+      "characters": 2278777,
+      "characters_with_UNK": 2058,
+      "UNK_character_fraction": 0.0009031160135458625,
+      "multi_subtoken_characters": 0
+    },
+    "validation": {
+      "characters": 341563,
+      "characters_with_UNK": 156,
+      "UNK_character_fraction": 0.0004567239425816028,
+      "multi_subtoken_characters": 0
+    },
+    "test": {
+      "characters": 417786,
+      "characters_with_UNK": 596,
+      "UNK_character_fraction": 0.0014265676686150326,
+      "multi_subtoken_characters": 0
+    }
+  }
+}

@@ -5,5 +5,9 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0
+  },
+  "junit_xml": {
+    "path": "outputs/task1/validation-v2/pytest.xml",
+    "sha256": "c9b224842dc514862fc30f5d65f2efcb1d90cde109527cf66b7d790606cfa0a2"
   }
 }

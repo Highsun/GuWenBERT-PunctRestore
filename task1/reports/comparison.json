@@ -1,0 +1,710 @@
+{
+  "cclue-bert-base-v2": {
+    "model_id": "google-bert/bert-base-chinese",
+    "role": "main",
+    "test": {
+      "characters": 417786,
+      "accuracy_including_O": 0.9224411540836697,
+      "punctuation_micro": {
+        "precision": 0.722047591474343,
+        "recall": 0.6937740098026228,
+        "f1": 0.7076284926768632,
+        "support": 75490,
+        "predicted": 72534
+      },
+      "punctuation_macro_f1": 0.5531750689478657,
+      "segmentation_any_punctuation": {
+        "precision": 0.8719772796205917,
+        "recall": 0.8378328255398066,
+        "f1": 0.8545641247365292,
+        "support": 75490,
+        "predicted": 72534
+      },
+      "sentence_boundary": {
+        "precision": 0.7541129599250058,
+        "recall": 0.689863648057628,
+        "f1": 0.7205589269319481,
+        "support": 23322,
+        "predicted": 21335
+      },
+      "per_class": {
+        "O": {
+          "precision": 0.9645418419009882,
+          "recall": 0.9728714329118657,
+          "f1": 0.9686887315503789,
+          "support": 342296,
+          "predicted": 345252
+        },
+        "，": {
+          "precision": 0.7285170413343002,
+          "recall": 0.728830850846766,
+          "f1": 0.7286739123043621,
+          "support": 44109,
+          "predicted": 44128
+        },
+        "。": {
+          "precision": 0.725588968605302,
+          "recall": 0.6701127819548872,
+          "f1": 0.6967483448562284,
+          "support": 21280,
+          "predicted": 19653
+        },
+        "？": {
+          "precision": 0.6416781292984869,
+          "recall": 0.7149425287356321,
+          "f1": 0.6763320043494019,
+          "support": 1305,
+          "predicted": 1454
+        },
+        "！": {
+          "precision": 0.5350877192982456,
+          "recall": 0.1655359565807327,
+          "f1": 0.2528497409326425,
+          "support": 737,
+          "predicted": 228
+        },
+        "、": {
+          "precision": 0.54,
+          "recall": 0.5261538461538462,
+          "f1": 0.532987012987013,
+          "support": 2925,
+          "predicted": 2850
+        },
+        "：": {
+          "precision": 0.8206809583858764,
+          "recall": 0.8430051813471503,
+          "f1": 0.8316932907348242,
+          "support": 3860,
+          "predicted": 3965
+        },
+        "；": {
+          "precision": 0.45703125,
+          "recall": 0.09183673469387756,
+          "f1": 0.15294117647058825,
+          "support": 1274,
+          "predicted": 256
+        }
+      },
+      "confusion_gold_rows_predicted_columns": [
+        [
+          333010,
+          6459,
+          1407,
+          77,
+          27,
+          932,
+          377,
+          7
+        ],
+        [
+          8070,
+          32148,
+          3100,
+          118,
+          33,
+          318,
+          283,
+          39
+        ],
+        [
+          2271,
+          4352,
+          14260,
+          181,
+          28,
+          51,
+          45,
+          92
+        ],
+        [
+          134,
+          104,
+          117,
+          933,
+          17,
+          0,
+          0,
+          0
+        ],
+        [
+          91,
+          92,
+          291,
+          140,
+          122,
+          1,
+          0,
+          0
+        ],
+        [
+          1104,
+          241,
+          39,
+          0,
+          0,
+          1539,
+          1,
+          1
+        ],
+        [
+          409,
+          118,
+          76,
+          1,
+          0,
+          2,
+          3254,
+          0
+        ],
+        [
+          163,
+          614,
+          363,
+          4,
+          1,
+          7,
+          5,
+          117
+        ]
+      ],
+      "loss": 0.2277189538948962,
+      "all_O_baseline": {
+        "characters": 417786,
+        "accuracy_including_O": 0.8193094072084751,
+        "punctuation_micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 75490,
+          "predicted": 0
+        },
+        "punctuation_macro_f1": 0.0,
+        "segmentation_any_punctuation": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 75490,
+          "predicted": 0
+        },
+        "sentence_boundary": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 23322,
+          "predicted": 0
+        },
+        "per_class": {
+          "O": {
+            "precision": 0.8193094072084751,
+            "recall": 1.0,
+            "f1": 0.9006817685460253,
+            "support": 342296,
+            "predicted": 417786
+          },
+          "，": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 44109,
+            "predicted": 0
+          },
+          "。": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 21280,
+            "predicted": 0
+          },
+          "？": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1305,
+            "predicted": 0
+          },
+          "！": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 737,
+            "predicted": 0
+          },
+          "、": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2925,
+            "predicted": 0
+          },
+          "：": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3860,
+            "predicted": 0
+          },
+          "；": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1274,
+            "predicted": 0
+          }
+        },
+        "confusion_gold_rows_predicted_columns": [
+          [
+            342296,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            44109,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            21280,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1305,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            737,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2925,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3860,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1274,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "experiment": "cclue-bert-base-v2",
+      "best_epoch": 3,
+      "test_windows": 3992,
+      "test_records": 3992,
+      "evaluation_seconds_including_prediction_write": 4.500242204001552,
+      "model_files": {
+        "tokenizer_config.json": "1c441dfe412d9d7e47c960029a48a0159c23a38a9ab41b465d90fb1f520d4ced",
+        "labels.json": "8ad330ec6590a8ad8d9f35759a477a993e0b155aa22b1ca8f21f50af605ec0af",
+        "vocab.txt": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c",
+        "reference_predictions.json": "df3e15c4191737188de989465f73be3d9a077c0a0e9ed8692869c69bc137df11",
+        "config.json": "23ff2e24966ea4e0bd8ad35a75a6522ea6502a26bdb84e3bb7eb7e6027386079",
+        "tokenizer.json": "48cea5d44424912a6fd1ea647bf4fe50b55ab8b1e5879c3275f80e339e8fae26",
+        "model.safetensors": "df6140f7388ad330e491b31f339d2a17be1177d6fd5cce6cf1371efed91ac5a6",
+        "inference_contract.json": "fd08cbe88e375274f230238c5a3e61e4d1e93a44c7407bb462dcda4e71ba48d5",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+      },
+      "test_data_sha256": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec"
+    }
+  },
+  "cclue-guwenbert-v2": {
+    "model_id": "ethanyt/guwenbert-base",
+    "role": "domain_pretrained_baseline",
+    "test": {
+      "characters": 417786,
+      "accuracy_including_O": 0.9503693278376968,
+      "punctuation_micro": {
+        "precision": 0.7992675062036386,
+        "recall": 0.797880513975361,
+        "f1": 0.798573407844931,
+        "support": 75490,
+        "predicted": 75359
+      },
+      "punctuation_macro_f1": 0.661074896827578,
+      "segmentation_any_punctuation": {
+        "precision": 0.9273212224153717,
+        "recall": 0.9257120148364022,
+        "f1": 0.9265159198934034,
+        "support": 75490,
+        "predicted": 75359
+      },
+      "sentence_boundary": {
+        "precision": 0.819891547598554,
+        "recall": 0.8168681931223737,
+        "f1": 0.8183770780531809,
+        "support": 23322,
+        "predicted": 23236
+      },
+      "per_class": {
+        "O": {
+          "precision": 0.9836227867545492,
+          "recall": 0.9839992287377007,
+          "f1": 0.983810971736016,
+          "support": 342296,
+          "predicted": 342427
+        },
+        "，": {
+          "precision": 0.8258688231655632,
+          "recall": 0.8172935228638146,
+          "f1": 0.8215587967183227,
+          "support": 44109,
+          "predicted": 43651
+        },
+        "。": {
+          "precision": 0.7966896422375392,
+          "recall": 0.7984492481203007,
+          "f1": 0.7975684746637877,
+          "support": 21280,
+          "predicted": 21327
+        },
+        "？": {
+          "precision": 0.6771653543307087,
+          "recall": 0.7908045977011494,
+          "f1": 0.7295864262990456,
+          "support": 1305,
+          "predicted": 1524
+        },
+        "！": {
+          "precision": 0.5038961038961038,
+          "recall": 0.26322930800542743,
+          "f1": 0.34581105169340465,
+          "support": 737,
+          "predicted": 385
+        },
+        "、": {
+          "precision": 0.5905557155197236,
+          "recall": 0.7011965811965812,
+          "f1": 0.6411378555798687,
+          "support": 2925,
+          "predicted": 3473
+        },
+        "：": {
+          "precision": 0.8226227175717334,
+          "recall": 0.8987046632124353,
+          "f1": 0.8589822954067104,
+          "support": 3860,
+          "predicted": 4217
+        },
+        "；": {
+          "precision": 0.5690537084398977,
+          "recall": 0.3492935635792779,
+          "f1": 0.43287937743190663,
+          "support": 1274,
+          "predicted": 782
+        }
+      },
+      "confusion_gold_rows_predicted_columns": [
+        [
+          336819,
+          3474,
+          567,
+          29,
+          35,
+          1015,
+          351,
+          6
+        ],
+        [
+          4066,
+          36050,
+          3004,
+          114,
+          54,
+          362,
+          341,
+          118
+        ],
+        [
+          562,
+          3181,
+          16991,
+          199,
+          53,
+          38,
+          50,
+          206
+        ],
+        [
+          48,
+          73,
+          99,
+          1032,
+          48,
+          1,
+          0,
+          4
+        ],
+        [
+          29,
+          79,
+          293,
+          142,
+          194,
+          0,
+          0,
+          0
+        ],
+        [
+          646,
+          201,
+          26,
+          0,
+          0,
+          2051,
+          0,
+          1
+        ],
+        [
+          222,
+          91,
+          72,
+          1,
+          0,
+          3,
+          3469,
+          2
+        ],
+        [
+          35,
+          502,
+          275,
+          7,
+          1,
+          3,
+          6,
+          445
+        ]
+      ],
+      "loss": 0.14605653859200168,
+      "all_O_baseline": {
+        "characters": 417786,
+        "accuracy_including_O": 0.8193094072084751,
+        "punctuation_micro": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 75490,
+          "predicted": 0
+        },
+        "punctuation_macro_f1": 0.0,
+        "segmentation_any_punctuation": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 75490,
+          "predicted": 0
+        },
+        "sentence_boundary": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 23322,
+          "predicted": 0
+        },
+        "per_class": {
+          "O": {
+            "precision": 0.8193094072084751,
+            "recall": 1.0,
+            "f1": 0.9006817685460253,
+            "support": 342296,
+            "predicted": 417786
+          },
+          "，": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 44109,
+            "predicted": 0
+          },
+          "。": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 21280,
+            "predicted": 0
+          },
+          "？": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1305,
+            "predicted": 0
+          },
+          "！": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 737,
+            "predicted": 0
+          },
+          "、": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2925,
+            "predicted": 0
+          },
+          "：": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3860,
+            "predicted": 0
+          },
+          "；": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1274,
+            "predicted": 0
+          }
+        },
+        "confusion_gold_rows_predicted_columns": [
+          [
+            342296,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            44109,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            21280,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1305,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            737,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2925,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3860,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1274,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "experiment": "cclue-guwenbert-v2",
+      "best_epoch": 3,
+      "test_windows": 3992,
+      "test_records": 3992,
+      "evaluation_seconds_including_prediction_write": 4.53483417499956,
+      "model_files": {
+        "tokenizer_config.json": "efc07e857c91d689ded0e97dc167c67d8d79560797269a6f3af3dd2262cce7e5",
+        "labels.json": "8ad330ec6590a8ad8d9f35759a477a993e0b155aa22b1ca8f21f50af605ec0af",
+        "vocab.txt": "85a650161233174f26cf26b5bac3248748def50d65956b94bf305618755cb660",
+        "reference_predictions.json": "bd9aeb8037d1a60acd3c3eb564421ca2c7acc332c38e496d9da3b59819f28f23",
+        "config.json": "3d6d254520eb7c1b4bce8a5e31667c6bfc37668f7214bf68dab9757ffa09006c",
+        "tokenizer.json": "6323d368a37f4cfc61ce350d58c4069d98838dc0b8d7608918519dca349ba2a9",
+        "model.safetensors": "9b931f1677f21f9f53fb17d2f04e9951b6c66e317b91a2d63443e3f03a931d5f",
+        "inference_contract.json": "1ced50f05f1fe6ab3ab5c932a04209bf89a3ebb5baf636f20e279930c7dca48f",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+      },
+      "test_data_sha256": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec"
+    }
+  }
+}

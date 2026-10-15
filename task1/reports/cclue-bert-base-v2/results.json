@@ -1,0 +1,1618 @@
+{
+  "training": {
+    "config": {
+      "experiment": "cclue-bert-base-v2",
+      "role": "main",
+      "dataset_version": "cclue-punc-v2",
+      "dataset_revision": "ed481c453c1c36397f86905a2bda625ecc5607e1",
+      "model_id": "google-bert/bert-base-chinese",
+      "model_revision": "8f23c25b06e129b6c986331a13d8d025a92cf0ea",
+      "freeze_tag": "task1-v2.0",
+      "report_date": "2026-10-15",
+      "seed": 42,
+      "max_length": 256,
+      "batch_size": 32,
+      "eval_batch_size": 64,
+      "epochs": 3,
+      "learning_rate": 3e-05,
+      "weight_decay": 0.01,
+      "warmup_fraction": 0.1,
+      "precision": "bf16",
+      "num_threads": 4
+    },
+    "environment": {
+      "python": "3.12.15",
+      "torch": "2.9.1+cu128",
+      "transformers": "4.57.6",
+      "numpy": "2.5.4",
+      "cuda_runtime": "12.8",
+      "gpu": "NVIDIA GeForce RTX 5070",
+      "gpu_capability": [
+        12,
+        0
+      ],
+      "gpu_total_bytes": 12792037376,
+      "torch_arch_list": [
+        "sm_70",
+        "sm_75",
+        "sm_80",
+        "sm_86",
+        "sm_90",
+        "sm_100",
+        "sm_120"
+      ],
+      "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+      "git_head_at_run": "20849a4860eff936b864039bfc5a21918127d165",
+      "git_dirty_at_run": false,
+      "task1_lock_sha256": "0b43af32159d9bfb65d97ffc9292a834de19843586aada402cad3ef6d4d59fbf"
+    },
+    "source_files_sha256": {
+      "task1/configs/cclue_bert.toml": "af83100e1c7fb85711eb9a21ae0ee6a11684a16d5d331000ae1e1d3d9c6796b3",
+      "task1/configs/cclue_guwenbert.toml": "f1c1d68bc585eadead9a88c46536b9ccd31613cec41025287d25559b15a5ba13",
+      "task1/pyproject.toml": "941bc17c9b82608d10f28f72a21795c1b4b1ae3050bda6d5ae83e1fdb237f09c",
+      "task1/scripts/run.py": "0b8a67c7ae3ff23888d54bf8bcad7963550fc65318c27dcee55a1d15904fc34a",
+      "task1/scripts/verify_export.py": "f48a8a1b29e0419b25a3581f1a03913cd477890a3eea6f2d2d3e6dcffc9268a4",
+      "task1/src/guwenbert_task1/__init__.py": "3d98e496d936e6607736360ad4c865b9ef230347647691f32cb669be4f2ea0cb",
+      "task1/src/guwenbert_task1/cli.py": "79f34837a56ef6bfd1752d540d28d7064a4725386f99fb9a97cc46181d88360d",
+      "task1/src/guwenbert_task1/common.py": "150f7201662fd69d7fc6560434167f027bb263dec191239efd15fb62326cf908",
+      "task1/src/guwenbert_task1/data.py": "2be6a003f678fc68fa1ca1e19ec8ed6f3c0a3377fe2557b6b813bc11472fb7bf",
+      "task1/src/guwenbert_task1/encoding.py": "ed7f18a1d65234cdac45f7b1f9b3b29c81bbb8ff655d49968a0da8dc97a80b6b",
+      "task1/src/guwenbert_task1/metrics.py": "a13e843632549161923c543e277d06e8bd7ba9f33e52c7777a219b37bfe2b5b2",
+      "task1/src/guwenbert_task1/reporting.py": "10519dac46f417a8cda8966685d32bcee0dfea2abcbf35dcab4e21d8c1a76342",
+      "task1/src/guwenbert_task1/runtime.py": "f251ebf6551cd403185e6e14dca5b2849cc0d2bc8a98a118f615afd0d1ea6336",
+      "task1/uv.lock": "0b43af32159d9bfb65d97ffc9292a834de19843586aada402cad3ef6d4d59fbf"
+    },
+    "pretrained_source": {
+      "model_id": "google-bert/bert-base-chinese",
+      "requested_revision": "8f23c25b06e129b6c986331a13d8d025a92cf0ea",
+      "resolved_revision": "8f23c25b06e129b6c986331a13d8d025a92cf0ea",
+      "local_path": "models/task1/pretrained/google-bert--bert-base-chinese/8f23c25b06e129b6c986331a13d8d025a92cf0ea",
+      "files": {
+        "README.md": "80efb5c88f6c09c0f4b2f91380852a374f023e195954f21ff7221928487ce454",
+        "tokenizer_config.json": "0f6d13e6f4da6f9e24f22ada6bc3be571123d858d7c0c05a8a7cd55a9c23c2e8",
+        "vocab.txt": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c",
+        "config.json": "88af762cfb15fa9ce183c84dcbfdc9d635196ba635dfe81f265fdd21d67f4c4c",
+        "tokenizer.json": "55c5edcfb8936895e019b2d8f97dcb547734f25b29f95009155f4c8c15649aae",
+        "model.safetensors": "3404a1ffd8da507042e8161013ba2a4fc49858b4e3f8fbf5ce5724f94883aec3"
+      }
+    },
+    "dataset": {
+      "dataset_version": "cclue-punc-v2",
+      "repository": "https://github.com/Ethan-yt/CCLUE",
+      "revision": "ed481c453c1c36397f86905a2bda625ecc5607e1",
+      "sources": [
+        {
+          "upstream_path": "data/punctuation/train.txt",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+          "size_bytes": 28271171,
+          "sha256": "ec5c18082475ec786e05eb0e168092ac767e3192ba984409af82ec97a33b3913"
+        },
+        {
+          "upstream_path": "data/punctuation/dev.txt",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+          "size_bytes": 4232216,
+          "sha256": "16d12a47b4de7685bfa756e035fe31132715730becb7a221e3f2d9d9edb9c282"
+        },
+        {
+          "upstream_path": "data/punctuation/test.txt",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+          "size_bytes": 5177267,
+          "sha256": "b364aee5a5ee03817aad25f0553f024b2b416b8cfdf16cc8af394efd50652ab1"
+        },
+        {
+          "upstream_path": "data/punctuation/punctuation.py",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+          "size_bytes": 5868,
+          "sha256": "1238b7a6b9cc800352abff936e869c56aae63d49f6ee2ad80385c5366de9975c"
+        },
+        {
+          "upstream_path": "data/punctuation.ipynb",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+          "size_bytes": 29451,
+          "sha256": "d7fbb5d07ec644451222f043481d9e2d87a35eb61446aca5040fd16efb575a65"
+        },
+        {
+          "upstream_path": "README.md",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+          "size_bytes": 3460,
+          "sha256": "539c7fde8fd5b0a80bd62523c36d4d381943c5e156409df23283beb8b6758a4b"
+        },
+        {
+          "upstream_path": "LICENSE",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+          "size_bytes": 11357,
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "upstream_path": "run_sequence_labeling.py",
+          "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+          "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+          "size_bytes": 22487,
+          "sha256": "0504a0c605e202b3f4010f3f2efafe17c8465f057e40c05b981ad2fae06357fb"
+        }
+      ],
+      "labels": [
+        "O",
+        "，",
+        "。",
+        "？",
+        "！",
+        "、",
+        "：",
+        "；"
+      ],
+      "native_label_mapping": {
+        "O": 0,
+        "B-,": 1,
+        "B-.": 2,
+        "B-?": 3,
+        "B-!": 4,
+        "B-\\": 5,
+        "B-:": 6,
+        "B-;": 7
+      },
+      "official_nonempty_records": {
+        "train": 26932,
+        "validation": 4074,
+        "test": 3992
+      },
+      "official_readme_records": {
+        "train": 26935,
+        "validation": 4075,
+        "test": 3992
+      },
+      "removed_training": {
+        "duplicate_train_text": 26,
+        "exact_text_in_holdout": 16
+      },
+      "split_policy": "preserve official dev/test; remove training exact text overlap and within-train duplicates; no random resplit",
+      "splits": {
+        "train": {
+          "records": 26890,
+          "articles": 26890,
+          "documents": 1458,
+          "characters": 2278777,
+          "min_characters": 2,
+          "max_characters": 248,
+          "duplicate_text_records": 0,
+          "label_counts": {
+            "O": 1876434,
+            "，": 231421,
+            "。": 113756,
+            "？": 7014,
+            "！": 3323,
+            "、": 19322,
+            "：": 22370,
+            "；": 5137
+          },
+          "path": "data/splits/task1/cclue-punc-v2/train.jsonl",
+          "sha256": "a5ddd663ee26c5a00f78d4624cc058c027ae6605f7f3ccb68881f1c776467494"
+        },
+        "validation": {
+          "records": 4074,
+          "articles": 4074,
+          "documents": 185,
+          "characters": 341563,
+          "min_characters": 2,
+          "max_characters": 231,
+          "duplicate_text_records": 2,
+          "label_counts": {
+            "O": 281128,
+            "，": 34378,
+            "。": 17789,
+            "？": 972,
+            "！": 571,
+            "、": 2904,
+            "：": 2885,
+            "；": 936
+          },
+          "path": "data/splits/task1/cclue-punc-v2/validation.jsonl",
+          "sha256": "cb7dcfb853565fa08f93ceb9cd4da780fa6daea9860eade88ccc5ee1a5f051cf"
+        },
+        "test": {
+          "records": 3992,
+          "articles": 3992,
+          "documents": 180,
+          "characters": 417786,
+          "min_characters": 4,
+          "max_characters": 230,
+          "duplicate_text_records": 2,
+          "label_counts": {
+            "O": 342296,
+            "，": 44109,
+            "。": 21280,
+            "？": 1305,
+            "！": 737,
+            "、": 2925,
+            "：": 3860,
+            "；": 1274
+          },
+          "path": "data/splits/task1/cclue-punc-v2/test.jsonl",
+          "sha256": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec"
+        }
+      }
+    },
+    "train_windows": 26890,
+    "validation_windows": 4074,
+    "total_steps": 2523,
+    "best_epoch": 3,
+    "best_validation_micro_f1": 0.6972687824385263,
+    "training_seconds_including_validation_and_export": 314.29624911300016,
+    "peak_allocated_bytes": 4843442176,
+    "peak_reserved_bytes": 7595884544,
+    "history": [
+      {
+        "epoch": 1,
+        "step": 841,
+        "train_loss": 0.3401898820438606,
+        "validation": {
+          "characters": 341563,
+          "accuracy_including_O": 0.9135005840796573,
+          "punctuation_micro": {
+            "precision": 0.6941941767836644,
+            "recall": 0.6604120129064284,
+            "f1": 0.6768818526401479,
+            "support": 60435,
+            "predicted": 57494
+          },
+          "punctuation_macro_f1": 0.5004298051346856,
+          "segmentation_any_punctuation": {
+            "precision": 0.8430792778376874,
+            "recall": 0.8020517911806072,
+            "f1": 0.8220539477143025,
+            "support": 60435,
+            "predicted": 57494
+          },
+          "sentence_boundary": {
+            "precision": 0.7428954892921749,
+            "recall": 0.6585454169253052,
+            "f1": 0.6981820176039925,
+            "support": 19332,
+            "predicted": 17137
+          },
+          "per_class": {
+            "O": {
+              "precision": 0.957886992244842,
+              "recall": 0.9679078569192681,
+              "f1": 0.9628713528203442,
+              "support": 281128,
+              "predicted": 284069
+            },
+            "，": {
+              "precision": 0.6884033035099794,
+              "recall": 0.6982954214904881,
+              "f1": 0.6933140794223827,
+              "support": 34378,
+              "predicted": 34872
+            },
+            "。": {
+              "precision": 0.718927701056052,
+              "recall": 0.6467479903311035,
+              "f1": 0.6809303977272727,
+              "support": 17789,
+              "predicted": 16003
+            },
+            "？": {
+              "precision": 0.6138613861386139,
+              "recall": 0.6378600823045267,
+              "f1": 0.6256306760847629,
+              "support": 972,
+              "predicted": 1010
+            },
+            "！": {
+              "precision": 0.3467741935483871,
+              "recall": 0.07530647985989491,
+              "f1": 0.1237410071942446,
+              "support": 571,
+              "predicted": 124
+            },
+            "、": {
+              "precision": 0.5875358753587536,
+              "recall": 0.49345730027548207,
+              "f1": 0.5364027699794124,
+              "support": 2904,
+              "predicted": 2439
+            },
+            "：": {
+              "precision": 0.7712152070604209,
+              "recall": 0.7875216637781629,
+              "f1": 0.7792831418281597,
+              "support": 2885,
+              "predicted": 2946
+            },
+            "；": {
+              "precision": 0.33,
+              "recall": 0.035256410256410256,
+              "f1": 0.06370656370656372,
+              "support": 936,
+              "predicted": 100
+            }
+          },
+          "confusion_gold_rows_predicted_columns": [
+            [
+              272106,
+              6229,
+              1468,
+              87,
+              17,
+              685,
+              534,
+              2
+            ],
+            [
+              7550,
+              24006,
+              2361,
+              96,
+              27,
+              200,
+              107,
+              31
+            ],
+            [
+              2399,
+              3629,
+              11505,
+              96,
+              17,
+              88,
+              22,
+              33
+            ],
+            [
+              141,
+              92,
+              91,
+              620,
+              20,
+              8,
+              0,
+              0
+            ],
+            [
+              83,
+              106,
+              229,
+              110,
+              43,
+              0,
+              0,
+              0
+            ],
+            [
+              1157,
+              287,
+              26,
+              0,
+              0,
+              1433,
+              0,
+              1
+            ],
+            [
+              465,
+              83,
+              54,
+              0,
+              0,
+              11,
+              2272,
+              0
+            ],
+            [
+              168,
+              440,
+              269,
+              1,
+              0,
+              14,
+              11,
+              33
+            ]
+          ],
+          "loss": 0.25065525336751326,
+          "all_O_baseline": {
+            "characters": 341563,
+            "accuracy_including_O": 0.8230633880133387,
+            "punctuation_micro": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 60435,
+              "predicted": 0
+            },
+            "punctuation_macro_f1": 0.0,
+            "segmentation_any_punctuation": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 60435,
+              "predicted": 0
+            },
+            "sentence_boundary": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 19332,
+              "predicted": 0
+            },
+            "per_class": {
+              "O": {
+                "precision": 0.8230633880133387,
+                "recall": 1.0,
+                "f1": 0.9029454416395933,
+                "support": 281128,
+                "predicted": 341563
+              },
+              "，": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 34378,
+                "predicted": 0
+              },
+              "。": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 17789,
+                "predicted": 0
+              },
+              "？": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 972,
+                "predicted": 0
+              },
+              "！": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 571,
+                "predicted": 0
+              },
+              "、": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2904,
+                "predicted": 0
+              },
+              "：": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2885,
+                "predicted": 0
+              },
+              "；": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 936,
+                "predicted": 0
+              }
+            },
+            "confusion_gold_rows_predicted_columns": [
+              [
+                281128,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                34378,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                17789,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                972,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                571,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2904,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2885,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                936,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "epoch": 2,
+        "step": 1682,
+        "train_loss": 0.2085015735636743,
+        "validation": {
+          "characters": 341563,
+          "accuracy_including_O": 0.9189637050851527,
+          "punctuation_micro": {
+            "precision": 0.7134306416045364,
+            "recall": 0.6745098039215687,
+            "f1": 0.6934245107295042,
+            "support": 60435,
+            "predicted": 57138
+          },
+          "punctuation_macro_f1": 0.5292223097217345,
+          "segmentation_any_punctuation": {
+            "precision": 0.8598480870874025,
+            "recall": 0.8129395218002813,
+            "f1": 0.8357360958723516,
+            "support": 60435,
+            "predicted": 57138
+          },
+          "sentence_boundary": {
+            "precision": 0.7629891144454252,
+            "recall": 0.6707531553900269,
+            "f1": 0.7139042585404796,
+            "support": 19332,
+            "predicted": 16995
+          },
+          "per_class": {
+            "O": {
+              "precision": 0.9602531423046498,
+              "recall": 0.9715147548447682,
+              "f1": 0.9658511227064484,
+              "support": 281128,
+              "predicted": 284425
+            },
+            "，": {
+              "precision": 0.7041703739846732,
+              "recall": 0.7136540810983769,
+              "f1": 0.7088805096866467,
+              "support": 34378,
+              "predicted": 34841
+            },
+            "。": {
+              "precision": 0.7421770866391622,
+              "recall": 0.6573163190735848,
+              "f1": 0.6971738611972335,
+              "support": 17789,
+              "predicted": 15755
+            },
+            "？": {
+              "precision": 0.6278381046396841,
+              "recall": 0.654320987654321,
+              "f1": 0.6408060453400505,
+              "support": 972,
+              "predicted": 1013
+            },
+            "！": {
+              "precision": 0.3392070484581498,
+              "recall": 0.13485113835376533,
+              "f1": 0.1929824561403509,
+              "support": 571,
+              "predicted": 227
+            },
+            "、": {
+              "precision": 0.6701372456223379,
+              "recall": 0.48760330578512395,
+              "f1": 0.5644807653976479,
+              "support": 2904,
+              "predicted": 2113
+            },
+            "：": {
+              "precision": 0.7735352205398288,
+              "recall": 0.8145580589254766,
+              "f1": 0.7935167989194665,
+              "support": 2885,
+              "predicted": 3038
+            },
+            "；": {
+              "precision": 0.3841059602649007,
+              "recall": 0.06196581196581197,
+              "f1": 0.10671573137074516,
+              "support": 936,
+              "predicted": 151
+            }
+          },
+          "confusion_gold_rows_predicted_columns": [
+            [
+              273120,
+              5738,
+              1140,
+              78,
+              26,
+              492,
+              528,
+              6
+            ],
+            [
+              7122,
+              24534,
+              2289,
+              101,
+              48,
+              127,
+              118,
+              39
+            ],
+            [
+              2278,
+              3556,
+              11693,
+              95,
+              40,
+              52,
+              29,
+              46
+            ],
+            [
+              116,
+              90,
+              79,
+              636,
+              36,
+              15,
+              0,
+              0
+            ],
+            [
+              75,
+              107,
+              210,
+              101,
+              77,
+              0,
+              1,
+              0
+            ],
+            [
+              1147,
+              311,
+              27,
+              0,
+              0,
+              1416,
+              1,
+              2
+            ],
+            [
+              400,
+              85,
+              45,
+              0,
+              0,
+              5,
+              2350,
+              0
+            ],
+            [
+              167,
+              420,
+              272,
+              2,
+              0,
+              6,
+              11,
+              58
+            ]
+          ],
+          "loss": 0.2380852721646818,
+          "all_O_baseline": {
+            "characters": 341563,
+            "accuracy_including_O": 0.8230633880133387,
+            "punctuation_micro": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 60435,
+              "predicted": 0
+            },
+            "punctuation_macro_f1": 0.0,
+            "segmentation_any_punctuation": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 60435,
+              "predicted": 0
+            },
+            "sentence_boundary": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 19332,
+              "predicted": 0
+            },
+            "per_class": {
+              "O": {
+                "precision": 0.8230633880133387,
+                "recall": 1.0,
+                "f1": 0.9029454416395933,
+                "support": 281128,
+                "predicted": 341563
+              },
+              "，": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 34378,
+                "predicted": 0
+              },
+              "。": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 17789,
+                "predicted": 0
+              },
+              "？": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 972,
+                "predicted": 0
+              },
+              "！": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 571,
+                "predicted": 0
+              },
+              "、": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2904,
+                "predicted": 0
+              },
+              "：": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2885,
+                "predicted": 0
+              },
+              "；": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 936,
+                "predicted": 0
+              }
+            },
+            "confusion_gold_rows_predicted_columns": [
+              [
+                281128,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                34378,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                17789,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                972,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                571,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2904,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2885,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                936,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      {
+        "epoch": 3,
+        "step": 2523,
+        "train_loss": 0.1787502812575751,
+        "validation": {
+          "characters": 341563,
+          "accuracy_including_O": 0.9203104551722523,
+          "punctuation_micro": {
+            "precision": 0.7176635432174446,
+            "recall": 0.6780011582692148,
+            "f1": 0.6972687824385263,
+            "support": 60435,
+            "predicted": 57095
+          },
+          "punctuation_macro_f1": 0.5292839330734876,
+          "segmentation_any_punctuation": {
+            "precision": 0.8641036868377266,
+            "recall": 0.8163481426325805,
+            "f1": 0.8395473496128648,
+            "support": 60435,
+            "predicted": 57095
+          },
+          "sentence_boundary": {
+            "precision": 0.7491815104600189,
+            "recall": 0.6983757500517277,
+            "f1": 0.7228870505715739,
+            "support": 19332,
+            "predicted": 18021
+          },
+          "per_class": {
+            "O": {
+              "precision": 0.9609833091947073,
+              "recall": 0.9724004723826869,
+              "f1": 0.9666581800437061,
+              "support": 281128,
+              "predicted": 284468
+            },
+            "，": {
+              "precision": 0.7187667241481834,
+              "recall": 0.7032113560998313,
+              "f1": 0.7109039581250369,
+              "support": 34378,
+              "predicted": 33634
+            },
+            "。": {
+              "precision": 0.7288186336147536,
+              "recall": 0.6842430715610771,
+              "f1": 0.705827776167005,
+              "support": 17789,
+              "predicted": 16701
+            },
+            "？": {
+              "precision": 0.5994647636039251,
+              "recall": 0.691358024691358,
+              "f1": 0.6421404682274248,
+              "support": 972,
+              "predicted": 1121
+            },
+            "！": {
+              "precision": 0.3015075376884422,
+              "recall": 0.10507880910683012,
+              "f1": 0.15584415584415587,
+              "support": 571,
+              "predicted": 199
+            },
+            "、": {
+              "precision": 0.6551724137931034,
+              "recall": 0.5037878787878788,
+              "f1": 0.569593147751606,
+              "support": 2904,
+              "predicted": 2233
+            },
+            "：": {
+              "precision": 0.7834437086092715,
+              "recall": 0.820103986135182,
+              "f1": 0.8013547840812871,
+              "support": 2885,
+              "predicted": 3020
+            },
+            "；": {
+              "precision": 0.3582887700534759,
+              "recall": 0.07158119658119658,
+              "f1": 0.11932324131789848,
+              "support": 936,
+              "predicted": 187
+            }
+          },
+          "confusion_gold_rows_predicted_columns": [
+            [
+              273369,
+              5373,
+              1236,
+              84,
+              26,
+              531,
+              499,
+              10
+            ],
+            [
+              7097,
+              24175,
+              2616,
+              116,
+              61,
+              147,
+              113,
+              53
+            ],
+            [
+              2171,
+              3141,
+              12172,
+              120,
+              39,
+              62,
+              29,
+              55
+            ],
+            [
+              113,
+              74,
+              85,
+              672,
+              13,
+              15,
+              0,
+              0
+            ],
+            [
+              75,
+              95,
+              216,
+              124,
+              60,
+              0,
+              1,
+              0
+            ],
+            [
+              1101,
+              301,
+              35,
+              1,
+              0,
+              1463,
+              1,
+              2
+            ],
+            [
+              389,
+              82,
+              41,
+              1,
+              0,
+              6,
+              2366,
+              0
+            ],
+            [
+              153,
+              393,
+              300,
+              3,
+              0,
+              9,
+              11,
+              67
+            ]
+          ],
+          "loss": 0.2403095053250288,
+          "all_O_baseline": {
+            "characters": 341563,
+            "accuracy_including_O": 0.8230633880133387,
+            "punctuation_micro": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 60435,
+              "predicted": 0
+            },
+            "punctuation_macro_f1": 0.0,
+            "segmentation_any_punctuation": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 60435,
+              "predicted": 0
+            },
+            "sentence_boundary": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 19332,
+              "predicted": 0
+            },
+            "per_class": {
+              "O": {
+                "precision": 0.8230633880133387,
+                "recall": 1.0,
+                "f1": 0.9029454416395933,
+                "support": 281128,
+                "predicted": 341563
+              },
+              "，": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 34378,
+                "predicted": 0
+              },
+              "。": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 17789,
+                "predicted": 0
+              },
+              "？": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 972,
+                "predicted": 0
+              },
+              "！": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 571,
+                "predicted": 0
+              },
+              "、": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2904,
+                "predicted": 0
+              },
+              "：": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 2885,
+                "predicted": 0
+              },
+              "；": {
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1": 0.0,
+                "support": 936,
+                "predicted": 0
+              }
+            },
+            "confusion_gold_rows_predicted_columns": [
+              [
+                281128,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                34378,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                17789,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                972,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                571,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2904,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2885,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                936,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      }
+    ],
+    "model_path": "models/task1/cclue-bert-base-v2"
+  },
+  "test": {
+    "characters": 417786,
+    "accuracy_including_O": 0.9224411540836697,
+    "punctuation_micro": {
+      "precision": 0.722047591474343,
+      "recall": 0.6937740098026228,
+      "f1": 0.7076284926768632,
+      "support": 75490,
+      "predicted": 72534
+    },
+    "punctuation_macro_f1": 0.5531750689478657,
+    "segmentation_any_punctuation": {
+      "precision": 0.8719772796205917,
+      "recall": 0.8378328255398066,
+      "f1": 0.8545641247365292,
+      "support": 75490,
+      "predicted": 72534
+    },
+    "sentence_boundary": {
+      "precision": 0.7541129599250058,
+      "recall": 0.689863648057628,
+      "f1": 0.7205589269319481,
+      "support": 23322,
+      "predicted": 21335
+    },
+    "per_class": {
+      "O": {
+        "precision": 0.9645418419009882,
+        "recall": 0.9728714329118657,
+        "f1": 0.9686887315503789,
+        "support": 342296,
+        "predicted": 345252
+      },
+      "，": {
+        "precision": 0.7285170413343002,
+        "recall": 0.728830850846766,
+        "f1": 0.7286739123043621,
+        "support": 44109,
+        "predicted": 44128
+      },
+      "。": {
+        "precision": 0.725588968605302,
+        "recall": 0.6701127819548872,
+        "f1": 0.6967483448562284,
+        "support": 21280,
+        "predicted": 19653
+      },
+      "？": {
+        "precision": 0.6416781292984869,
+        "recall": 0.7149425287356321,
+        "f1": 0.6763320043494019,
+        "support": 1305,
+        "predicted": 1454
+      },
+      "！": {
+        "precision": 0.5350877192982456,
+        "recall": 0.1655359565807327,
+        "f1": 0.2528497409326425,
+        "support": 737,
+        "predicted": 228
+      },
+      "、": {
+        "precision": 0.54,
+        "recall": 0.5261538461538462,
+        "f1": 0.532987012987013,
+        "support": 2925,
+        "predicted": 2850
+      },
+      "：": {
+        "precision": 0.8206809583858764,
+        "recall": 0.8430051813471503,
+        "f1": 0.8316932907348242,
+        "support": 3860,
+        "predicted": 3965
+      },
+      "；": {
+        "precision": 0.45703125,
+        "recall": 0.09183673469387756,
+        "f1": 0.15294117647058825,
+        "support": 1274,
+        "predicted": 256
+      }
+    },
+    "confusion_gold_rows_predicted_columns": [
+      [
+        333010,
+        6459,
+        1407,
+        77,
+        27,
+        932,
+        377,
+        7
+      ],
+      [
+        8070,
+        32148,
+        3100,
+        118,
+        33,
+        318,
+        283,
+        39
+      ],
+      [
+        2271,
+        4352,
+        14260,
+        181,
+        28,
+        51,
+        45,
+        92
+      ],
+      [
+        134,
+        104,
+        117,
+        933,
+        17,
+        0,
+        0,
+        0
+      ],
+      [
+        91,
+        92,
+        291,
+        140,
+        122,
+        1,
+        0,
+        0
+      ],
+      [
+        1104,
+        241,
+        39,
+        0,
+        0,
+        1539,
+        1,
+        1
+      ],
+      [
+        409,
+        118,
+        76,
+        1,
+        0,
+        2,
+        3254,
+        0
+      ],
+      [
+        163,
+        614,
+        363,
+        4,
+        1,
+        7,
+        5,
+        117
+      ]
+    ],
+    "loss": 0.2277189538948962,
+    "all_O_baseline": {
+      "characters": 417786,
+      "accuracy_including_O": 0.8193094072084751,
+      "punctuation_micro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 75490,
+        "predicted": 0
+      },
+      "punctuation_macro_f1": 0.0,
+      "segmentation_any_punctuation": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 75490,
+        "predicted": 0
+      },
+      "sentence_boundary": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 23322,
+        "predicted": 0
+      },
+      "per_class": {
+        "O": {
+          "precision": 0.8193094072084751,
+          "recall": 1.0,
+          "f1": 0.9006817685460253,
+          "support": 342296,
+          "predicted": 417786
+        },
+        "，": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 44109,
+          "predicted": 0
+        },
+        "。": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 21280,
+          "predicted": 0
+        },
+        "？": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1305,
+          "predicted": 0
+        },
+        "！": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 737,
+          "predicted": 0
+        },
+        "、": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2925,
+          "predicted": 0
+        },
+        "：": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3860,
+          "predicted": 0
+        },
+        "；": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1274,
+          "predicted": 0
+        }
+      },
+      "confusion_gold_rows_predicted_columns": [
+        [
+          342296,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          44109,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          21280,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1305,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          737,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2925,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3860,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1274,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "experiment": "cclue-bert-base-v2",
+    "best_epoch": 3,
+    "test_windows": 3992,
+    "test_records": 3992,
+    "evaluation_seconds_including_prediction_write": 4.500242204001552,
+    "model_files": {
+      "tokenizer_config.json": "1c441dfe412d9d7e47c960029a48a0159c23a38a9ab41b465d90fb1f520d4ced",
+      "labels.json": "8ad330ec6590a8ad8d9f35759a477a993e0b155aa22b1ca8f21f50af605ec0af",
+      "vocab.txt": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c",
+      "reference_predictions.json": "df3e15c4191737188de989465f73be3d9a077c0a0e9ed8692869c69bc137df11",
+      "config.json": "23ff2e24966ea4e0bd8ad35a75a6522ea6502a26bdb84e3bb7eb7e6027386079",
+      "tokenizer.json": "48cea5d44424912a6fd1ea647bf4fe50b55ab8b1e5879c3275f80e339e8fae26",
+      "model.safetensors": "df6140f7388ad330e491b31f339d2a17be1177d6fd5cce6cf1371efed91ac5a6",
+      "inference_contract.json": "fd08cbe88e375274f230238c5a3e61e4d1e93a44c7407bb462dcda4e71ba48d5",
+      "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    "test_data_sha256": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec"
+  }
+}

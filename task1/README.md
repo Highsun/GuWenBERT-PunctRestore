@@ -2,6 +2,8 @@
 
 主实验使用 `google-bert/bert-base-chinese`，对照使用 `ethanyt/guwenbert-base`。两者都从预训练编码器重新微调，不使用现成标点模型；共享同一 CCLUE 划分、标签、训练超参数和 seed。当前代码版本不再支持旧语料解析。最终结果见 [实验总报告](reports/experiment.md)。
 
+本地已完成并冻结为 `task1-v2.0`：主实验标点 micro/macro-F1 为 **70.76%/55.32%**，对照为 **79.86%/66.11%**。两者使用同一 3,992 条测试记录和 417,786 个字符；14 项测试、逐字符覆盖及独立模型加载验证通过。逐类指标与边界定义见报告，不把不同定义的 F1 混为一谈。
+
 ## 独立环境与代码
 
 Python 3.12，uv/venv；本任务自己的 `pyproject.toml`、`uv.lock`、`.venv/`，不修改任务二依赖。uv 缓存放 `.cache/uv/`，Hugging Face 缓存放 `.cache/huggingface/`。源码位于 `src/guwenbert_task1/`，这个内部包名表示项目任务一，不限定所用基座。

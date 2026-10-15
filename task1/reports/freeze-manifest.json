@@ -1,0 +1,435 @@
+{
+  "schema_version": 2,
+  "intended_tag": "task1-v2.0",
+  "primary_experiment": "cclue-bert-base-v2",
+  "experiments": {
+    "cclue-bert-base-v2": {
+      "training_source_commit": "20849a4860eff936b864039bfc5a21918127d165",
+      "source_files_sha256": {
+        "task1/configs/cclue_bert.toml": "af83100e1c7fb85711eb9a21ae0ee6a11684a16d5d331000ae1e1d3d9c6796b3",
+        "task1/configs/cclue_guwenbert.toml": "f1c1d68bc585eadead9a88c46536b9ccd31613cec41025287d25559b15a5ba13",
+        "task1/pyproject.toml": "941bc17c9b82608d10f28f72a21795c1b4b1ae3050bda6d5ae83e1fdb237f09c",
+        "task1/scripts/run.py": "0b8a67c7ae3ff23888d54bf8bcad7963550fc65318c27dcee55a1d15904fc34a",
+        "task1/scripts/verify_export.py": "f48a8a1b29e0419b25a3581f1a03913cd477890a3eea6f2d2d3e6dcffc9268a4",
+        "task1/src/guwenbert_task1/__init__.py": "3d98e496d936e6607736360ad4c865b9ef230347647691f32cb669be4f2ea0cb",
+        "task1/src/guwenbert_task1/cli.py": "79f34837a56ef6bfd1752d540d28d7064a4725386f99fb9a97cc46181d88360d",
+        "task1/src/guwenbert_task1/common.py": "150f7201662fd69d7fc6560434167f027bb263dec191239efd15fb62326cf908",
+        "task1/src/guwenbert_task1/data.py": "2be6a003f678fc68fa1ca1e19ec8ed6f3c0a3377fe2557b6b813bc11472fb7bf",
+        "task1/src/guwenbert_task1/encoding.py": "ed7f18a1d65234cdac45f7b1f9b3b29c81bbb8ff655d49968a0da8dc97a80b6b",
+        "task1/src/guwenbert_task1/metrics.py": "a13e843632549161923c543e277d06e8bd7ba9f33e52c7777a219b37bfe2b5b2",
+        "task1/src/guwenbert_task1/reporting.py": "10519dac46f417a8cda8966685d32bcee0dfea2abcbf35dcab4e21d8c1a76342",
+        "task1/src/guwenbert_task1/runtime.py": "f251ebf6551cd403185e6e14dca5b2849cc0d2bc8a98a118f615afd0d1ea6336",
+        "task1/uv.lock": "0b43af32159d9bfb65d97ffc9292a834de19843586aada402cad3ef6d4d59fbf"
+      },
+      "model_path": "models/task1/cclue-bert-base-v2",
+      "model_files_sha256": {
+        "tokenizer_config.json": "1c441dfe412d9d7e47c960029a48a0159c23a38a9ab41b465d90fb1f520d4ced",
+        "labels.json": "8ad330ec6590a8ad8d9f35759a477a993e0b155aa22b1ca8f21f50af605ec0af",
+        "vocab.txt": "45bbac6b341c319adc98a532532882e91a9cefc0329aa57bac9ae761c27b291c",
+        "reference_predictions.json": "df3e15c4191737188de989465f73be3d9a077c0a0e9ed8692869c69bc137df11",
+        "config.json": "23ff2e24966ea4e0bd8ad35a75a6522ea6502a26bdb84e3bb7eb7e6027386079",
+        "tokenizer.json": "48cea5d44424912a6fd1ea647bf4fe50b55ab8b1e5879c3275f80e339e8fae26",
+        "model.safetensors": "df6140f7388ad330e491b31f339d2a17be1177d6fd5cce6cf1371efed91ac5a6",
+        "inference_contract.json": "fd08cbe88e375274f230238c5a3e61e4d1e93a44c7407bb462dcda4e71ba48d5",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+      },
+      "dataset": {
+        "dataset_version": "cclue-punc-v2",
+        "repository": "https://github.com/Ethan-yt/CCLUE",
+        "revision": "ed481c453c1c36397f86905a2bda625ecc5607e1",
+        "sources": [
+          {
+            "upstream_path": "data/punctuation/train.txt",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+            "size_bytes": 28271171,
+            "sha256": "ec5c18082475ec786e05eb0e168092ac767e3192ba984409af82ec97a33b3913"
+          },
+          {
+            "upstream_path": "data/punctuation/dev.txt",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+            "size_bytes": 4232216,
+            "sha256": "16d12a47b4de7685bfa756e035fe31132715730becb7a221e3f2d9d9edb9c282"
+          },
+          {
+            "upstream_path": "data/punctuation/test.txt",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+            "size_bytes": 5177267,
+            "sha256": "b364aee5a5ee03817aad25f0553f024b2b416b8cfdf16cc8af394efd50652ab1"
+          },
+          {
+            "upstream_path": "data/punctuation/punctuation.py",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+            "size_bytes": 5868,
+            "sha256": "1238b7a6b9cc800352abff936e869c56aae63d49f6ee2ad80385c5366de9975c"
+          },
+          {
+            "upstream_path": "data/punctuation.ipynb",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+            "size_bytes": 29451,
+            "sha256": "d7fbb5d07ec644451222f043481d9e2d87a35eb61446aca5040fd16efb575a65"
+          },
+          {
+            "upstream_path": "README.md",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+            "size_bytes": 3460,
+            "sha256": "539c7fde8fd5b0a80bd62523c36d4d381943c5e156409df23283beb8b6758a4b"
+          },
+          {
+            "upstream_path": "LICENSE",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+            "size_bytes": 11357,
+            "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+          },
+          {
+            "upstream_path": "run_sequence_labeling.py",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+            "size_bytes": 22487,
+            "sha256": "0504a0c605e202b3f4010f3f2efafe17c8465f057e40c05b981ad2fae06357fb"
+          }
+        ],
+        "labels": [
+          "O",
+          "，",
+          "。",
+          "？",
+          "！",
+          "、",
+          "：",
+          "；"
+        ],
+        "native_label_mapping": {
+          "O": 0,
+          "B-,": 1,
+          "B-.": 2,
+          "B-?": 3,
+          "B-!": 4,
+          "B-\\": 5,
+          "B-:": 6,
+          "B-;": 7
+        },
+        "official_nonempty_records": {
+          "train": 26932,
+          "validation": 4074,
+          "test": 3992
+        },
+        "official_readme_records": {
+          "train": 26935,
+          "validation": 4075,
+          "test": 3992
+        },
+        "removed_training": {
+          "duplicate_train_text": 26,
+          "exact_text_in_holdout": 16
+        },
+        "split_policy": "preserve official dev/test; remove training exact text overlap and within-train duplicates; no random resplit",
+        "splits": {
+          "train": {
+            "records": 26890,
+            "articles": 26890,
+            "documents": 1458,
+            "characters": 2278777,
+            "min_characters": 2,
+            "max_characters": 248,
+            "duplicate_text_records": 0,
+            "label_counts": {
+              "O": 1876434,
+              "，": 231421,
+              "。": 113756,
+              "？": 7014,
+              "！": 3323,
+              "、": 19322,
+              "：": 22370,
+              "；": 5137
+            },
+            "path": "data/splits/task1/cclue-punc-v2/train.jsonl",
+            "sha256": "a5ddd663ee26c5a00f78d4624cc058c027ae6605f7f3ccb68881f1c776467494"
+          },
+          "validation": {
+            "records": 4074,
+            "articles": 4074,
+            "documents": 185,
+            "characters": 341563,
+            "min_characters": 2,
+            "max_characters": 231,
+            "duplicate_text_records": 2,
+            "label_counts": {
+              "O": 281128,
+              "，": 34378,
+              "。": 17789,
+              "？": 972,
+              "！": 571,
+              "、": 2904,
+              "：": 2885,
+              "；": 936
+            },
+            "path": "data/splits/task1/cclue-punc-v2/validation.jsonl",
+            "sha256": "cb7dcfb853565fa08f93ceb9cd4da780fa6daea9860eade88ccc5ee1a5f051cf"
+          },
+          "test": {
+            "records": 3992,
+            "articles": 3992,
+            "documents": 180,
+            "characters": 417786,
+            "min_characters": 4,
+            "max_characters": 230,
+            "duplicate_text_records": 2,
+            "label_counts": {
+              "O": 342296,
+              "，": 44109,
+              "。": 21280,
+              "？": 1305,
+              "！": 737,
+              "、": 2925,
+              "：": 3860,
+              "；": 1274
+            },
+            "path": "data/splits/task1/cclue-punc-v2/test.jsonl",
+            "sha256": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec"
+          }
+        }
+      },
+      "outputs": {
+        "outputs/task1/cclue-bert-base-v2/config.json": "a58639bd2a7e65e4a1f184f15099089926e4115b2cfc0beb08869efaed14293e",
+        "outputs/task1/cclue-bert-base-v2/dataset.json": "ac4f532eb94a5955d3c99e0efd4a8c483f04c17746ffb9bafb5c646b76b7f61d",
+        "outputs/task1/cclue-bert-base-v2/environment.json": "9bf96f2e1d3f4ff70e023b844f8712cf74296d4ac0ff48022c3e4eb2a53b5e77",
+        "outputs/task1/cclue-bert-base-v2/export-validation.json": "a57d2fc5344c1f1a3862018ec665c0c6d68ad3cceca41926702a094efc48370c",
+        "outputs/task1/cclue-bert-base-v2/history.json": "3d76f6b8f79e4adaa719584e621f9019272deb3bd5f65821f10c074f7b48cbc5",
+        "outputs/task1/cclue-bert-base-v2/progress.jsonl": "f0686e7fcfe323deb0862877bb0b3beb0fe5892cab13fbaa1025a0d82584e709",
+        "outputs/task1/cclue-bert-base-v2/test-predictions.jsonl": "d6284c70786c6b1db5cf8f47fbbe2afb796ff2bb0584a3b70c2a7ca6b390324f",
+        "outputs/task1/cclue-bert-base-v2/test-window-index.jsonl": "ab96b65d607f3dbe5993a2cbec6e52e0c8ed684bdd6e81d644d07dc037db3bb1",
+        "outputs/task1/cclue-bert-base-v2/test.json": "ef45d93aa7d10ee5ab89ef79d29b63f5904eb52c02d52db949fe4ac0521c6da4",
+        "outputs/task1/cclue-bert-base-v2/training.json": "bc783bdede3067dba2fe43884a662c265523ce4c3c09e85acb7d568449ad5e10"
+      }
+    },
+    "cclue-guwenbert-v2": {
+      "training_source_commit": "20849a4860eff936b864039bfc5a21918127d165",
+      "source_files_sha256": {
+        "task1/configs/cclue_bert.toml": "af83100e1c7fb85711eb9a21ae0ee6a11684a16d5d331000ae1e1d3d9c6796b3",
+        "task1/configs/cclue_guwenbert.toml": "f1c1d68bc585eadead9a88c46536b9ccd31613cec41025287d25559b15a5ba13",
+        "task1/pyproject.toml": "941bc17c9b82608d10f28f72a21795c1b4b1ae3050bda6d5ae83e1fdb237f09c",
+        "task1/scripts/run.py": "0b8a67c7ae3ff23888d54bf8bcad7963550fc65318c27dcee55a1d15904fc34a",
+        "task1/scripts/verify_export.py": "f48a8a1b29e0419b25a3581f1a03913cd477890a3eea6f2d2d3e6dcffc9268a4",
+        "task1/src/guwenbert_task1/__init__.py": "3d98e496d936e6607736360ad4c865b9ef230347647691f32cb669be4f2ea0cb",
+        "task1/src/guwenbert_task1/cli.py": "79f34837a56ef6bfd1752d540d28d7064a4725386f99fb9a97cc46181d88360d",
+        "task1/src/guwenbert_task1/common.py": "150f7201662fd69d7fc6560434167f027bb263dec191239efd15fb62326cf908",
+        "task1/src/guwenbert_task1/data.py": "2be6a003f678fc68fa1ca1e19ec8ed6f3c0a3377fe2557b6b813bc11472fb7bf",
+        "task1/src/guwenbert_task1/encoding.py": "ed7f18a1d65234cdac45f7b1f9b3b29c81bbb8ff655d49968a0da8dc97a80b6b",
+        "task1/src/guwenbert_task1/metrics.py": "a13e843632549161923c543e277d06e8bd7ba9f33e52c7777a219b37bfe2b5b2",
+        "task1/src/guwenbert_task1/reporting.py": "10519dac46f417a8cda8966685d32bcee0dfea2abcbf35dcab4e21d8c1a76342",
+        "task1/src/guwenbert_task1/runtime.py": "f251ebf6551cd403185e6e14dca5b2849cc0d2bc8a98a118f615afd0d1ea6336",
+        "task1/uv.lock": "0b43af32159d9bfb65d97ffc9292a834de19843586aada402cad3ef6d4d59fbf"
+      },
+      "model_path": "models/task1/cclue-guwenbert-v2",
+      "model_files_sha256": {
+        "tokenizer_config.json": "efc07e857c91d689ded0e97dc167c67d8d79560797269a6f3af3dd2262cce7e5",
+        "labels.json": "8ad330ec6590a8ad8d9f35759a477a993e0b155aa22b1ca8f21f50af605ec0af",
+        "vocab.txt": "85a650161233174f26cf26b5bac3248748def50d65956b94bf305618755cb660",
+        "reference_predictions.json": "bd9aeb8037d1a60acd3c3eb564421ca2c7acc332c38e496d9da3b59819f28f23",
+        "config.json": "3d6d254520eb7c1b4bce8a5e31667c6bfc37668f7214bf68dab9757ffa09006c",
+        "tokenizer.json": "6323d368a37f4cfc61ce350d58c4069d98838dc0b8d7608918519dca349ba2a9",
+        "model.safetensors": "9b931f1677f21f9f53fb17d2f04e9951b6c66e317b91a2d63443e3f03a931d5f",
+        "inference_contract.json": "1ced50f05f1fe6ab3ab5c932a04209bf89a3ebb5baf636f20e279930c7dca48f",
+        "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+      },
+      "dataset": {
+        "dataset_version": "cclue-punc-v2",
+        "repository": "https://github.com/Ethan-yt/CCLUE",
+        "revision": "ed481c453c1c36397f86905a2bda625ecc5607e1",
+        "sources": [
+          {
+            "upstream_path": "data/punctuation/train.txt",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+            "size_bytes": 28271171,
+            "sha256": "ec5c18082475ec786e05eb0e168092ac767e3192ba984409af82ec97a33b3913"
+          },
+          {
+            "upstream_path": "data/punctuation/dev.txt",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+            "size_bytes": 4232216,
+            "sha256": "16d12a47b4de7685bfa756e035fe31132715730becb7a221e3f2d9d9edb9c282"
+          },
+          {
+            "upstream_path": "data/punctuation/test.txt",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+            "size_bytes": 5177267,
+            "sha256": "b364aee5a5ee03817aad25f0553f024b2b416b8cfdf16cc8af394efd50652ab1"
+          },
+          {
+            "upstream_path": "data/punctuation/punctuation.py",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+            "size_bytes": 5868,
+            "sha256": "1238b7a6b9cc800352abff936e869c56aae63d49f6ee2ad80385c5366de9975c"
+          },
+          {
+            "upstream_path": "data/punctuation.ipynb",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+            "size_bytes": 29451,
+            "sha256": "d7fbb5d07ec644451222f043481d9e2d87a35eb61446aca5040fd16efb575a65"
+          },
+          {
+            "upstream_path": "README.md",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+            "size_bytes": 3460,
+            "sha256": "539c7fde8fd5b0a80bd62523c36d4d381943c5e156409df23283beb8b6758a4b"
+          },
+          {
+            "upstream_path": "LICENSE",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+            "size_bytes": 11357,
+            "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+          },
+          {
+            "upstream_path": "run_sequence_labeling.py",
+            "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+            "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+            "size_bytes": 22487,
+            "sha256": "0504a0c605e202b3f4010f3f2efafe17c8465f057e40c05b981ad2fae06357fb"
+          }
+        ],
+        "labels": [
+          "O",
+          "，",
+          "。",
+          "？",
+          "！",
+          "、",
+          "：",
+          "；"
+        ],
+        "native_label_mapping": {
+          "O": 0,
+          "B-,": 1,
+          "B-.": 2,
+          "B-?": 3,
+          "B-!": 4,
+          "B-\\": 5,
+          "B-:": 6,
+          "B-;": 7
+        },
+        "official_nonempty_records": {
+          "train": 26932,
+          "validation": 4074,
+          "test": 3992
+        },
+        "official_readme_records": {
+          "train": 26935,
+          "validation": 4075,
+          "test": 3992
+        },
+        "removed_training": {
+          "duplicate_train_text": 26,
+          "exact_text_in_holdout": 16
+        },
+        "split_policy": "preserve official dev/test; remove training exact text overlap and within-train duplicates; no random resplit",
+        "splits": {
+          "train": {
+            "records": 26890,
+            "articles": 26890,
+            "documents": 1458,
+            "characters": 2278777,
+            "min_characters": 2,
+            "max_characters": 248,
+            "duplicate_text_records": 0,
+            "label_counts": {
+              "O": 1876434,
+              "，": 231421,
+              "。": 113756,
+              "？": 7014,
+              "！": 3323,
+              "、": 19322,
+              "：": 22370,
+              "；": 5137
+            },
+            "path": "data/splits/task1/cclue-punc-v2/train.jsonl",
+            "sha256": "a5ddd663ee26c5a00f78d4624cc058c027ae6605f7f3ccb68881f1c776467494"
+          },
+          "validation": {
+            "records": 4074,
+            "articles": 4074,
+            "documents": 185,
+            "characters": 341563,
+            "min_characters": 2,
+            "max_characters": 231,
+            "duplicate_text_records": 2,
+            "label_counts": {
+              "O": 281128,
+              "，": 34378,
+              "。": 17789,
+              "？": 972,
+              "！": 571,
+              "、": 2904,
+              "：": 2885,
+              "；": 936
+            },
+            "path": "data/splits/task1/cclue-punc-v2/validation.jsonl",
+            "sha256": "cb7dcfb853565fa08f93ceb9cd4da780fa6daea9860eade88ccc5ee1a5f051cf"
+          },
+          "test": {
+            "records": 3992,
+            "articles": 3992,
+            "documents": 180,
+            "characters": 417786,
+            "min_characters": 4,
+            "max_characters": 230,
+            "duplicate_text_records": 2,
+            "label_counts": {
+              "O": 342296,
+              "，": 44109,
+              "。": 21280,
+              "？": 1305,
+              "！": 737,
+              "、": 2925,
+              "：": 3860,
+              "；": 1274
+            },
+            "path": "data/splits/task1/cclue-punc-v2/test.jsonl",
+            "sha256": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec"
+          }
+        }
+      },
+      "outputs": {
+        "outputs/task1/cclue-guwenbert-v2/config.json": "18703f91cbda47ea5b2d0a0d94ec71c8cbfcee6e5d7ca67e118e4ee03cd2b72f",
+        "outputs/task1/cclue-guwenbert-v2/dataset.json": "ac4f532eb94a5955d3c99e0efd4a8c483f04c17746ffb9bafb5c646b76b7f61d",
+        "outputs/task1/cclue-guwenbert-v2/environment.json": "9ddf4a89dc303f8f7d905ecf9d49edcf3a421c954deefd9aa78d6db6cebde222",
+        "outputs/task1/cclue-guwenbert-v2/export-validation.json": "a57d2fc5344c1f1a3862018ec665c0c6d68ad3cceca41926702a094efc48370c",
+        "outputs/task1/cclue-guwenbert-v2/history.json": "3134ca7b22ca58f2ccc80e60f56fe129bfe7ae4d96ae67799a9e978e2e79eb2f",
+        "outputs/task1/cclue-guwenbert-v2/progress.jsonl": "ac32c4371ce76e82d88fb6a5c56d2500e46b294f8bd2d486277700f62d612a81",
+        "outputs/task1/cclue-guwenbert-v2/test-predictions.jsonl": "aeeea6b5f6a7364bac50cf195c53242cf1fc81473753b13c6149616563831a58",
+        "outputs/task1/cclue-guwenbert-v2/test-window-index.jsonl": "ab96b65d607f3dbe5993a2cbec6e52e0c8ed684bdd6e81d644d07dc037db3bb1",
+        "outputs/task1/cclue-guwenbert-v2/test.json": "8d259359d84aced002ff9a3670e8611cb2fbebb6311f611de492df1d6d256270",
+        "outputs/task1/cclue-guwenbert-v2/training.json": "72a1e6965de80ad547be24ce13bdff67ba93926a81cb209001b5294ea5c2be1f"
+      }
+    }
+  },
+  "reports": {
+    "task1/reports/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "task1/reports/cclue-bert-base-v2/experiment.md": "c34a66ca8394c23e0528c5dc791905eb84850aef78b3573108a3a11c2fd6c756",
+    "task1/reports/cclue-bert-base-v2/pretrained-model.json": "9ca54b938da578e28139ab1cfc21481ecb48aa7a1928356f33ec06a668794b2b",
+    "task1/reports/cclue-bert-base-v2/results.json": "6d3ab39aee457c7ee5e093ef941e58b282f953781fc251cc793e3e29f599813d",
+    "task1/reports/cclue-bert-base-v2/validation.json": "10214d3adb3c72791ec410a17cb3c1d59d8f803ad8360795d4b2e551d7ef8f9d",
+    "task1/reports/cclue-guwenbert-v2/experiment.md": "79254265bd67866159c35668315064c9fce9da618ec4b0f9b1c60ac981412894",
+    "task1/reports/cclue-guwenbert-v2/pretrained-model.json": "657c6c1454843215ef3c63747d0180bdacd47cf4d663d24ec7a064ec51fff217",
+    "task1/reports/cclue-guwenbert-v2/results.json": "ec560abb4c462fd4ad52ca1493016ead368665df1286bf3a79eb4a11797abfc3",
+    "task1/reports/cclue-guwenbert-v2/validation.json": "fc1217cea04ad32fa9d98d8725f6338ba48f8ef3b1502bdf299c69a5ab974112",
+    "task1/reports/comparison.json": "7e64be57b30031fc8b8d7b494ada94e4fb92c07ccc80d0cee20a036951cebb78",
+    "task1/reports/experiment.md": "bc0cdef54f4b646061d22a34411e4621aa1127cf62b6c3a7e20ed873ae11f761",
+    "task1/reports/handoff.md": "6c6b750e2372cc2daf05e66cdb2f5324937526ae6f6b8ae4b2d7f9d19a49c986",
+    "task1/reports/tokenization-audit.json": "0db09038a1f5fa4df559a839f45ae4cdd32f0b3428f5dd28566b89594307e084",
+    "task1/reports/unit-tests.json": "02437e4609ba244609c07be038c3c242457207a1f39d929b5b594192b5935019"
+  }
+}
