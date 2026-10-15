@@ -1,0 +1,56 @@
+# Python / virtual environments
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+build/
+dist/
+
+# Tool caches / coverage
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
+
+# Local credentials and editor settings
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Raw and derived corpora: retain documentation, metadata and directory markers
+/data/**
+!/data/README.md
+!/data/manifest.json
+!/data/raw/
+!/data/raw/.gitkeep
+!/data/processed/
+!/data/processed/.gitkeep
+!/data/splits/
+!/data/splits/.gitkeep
+
+# Models and generated outputs: retain empty directory markers
+/models/*
+!/models/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+*.log
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+events.out.tfevents.*
+wandb/
+mlruns/

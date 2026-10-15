@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "corpus": "人民日报 1998 年 1—6 月（用户换源提供）",
+  "source_url": null,
+  "license": null,
+  "audit_scope": "只读 UTF-8 严格解码、文件校验与控制字符检查；未清洗或修改原始字节",
+  "files": [
+    {
+      "path": "data/raw/199801.txt",
+      "size_bytes": 10666468,
+      "sha256": "41760f40739b0f301ab29e99ab14565e7cd4b06128eb3a6ac18bce277a6075a8",
+      "encoding": "utf-8",
+      "has_utf8_bom": false,
+      "line_count": 22564,
+      "crlf_count": 22564,
+      "lf_only_count": 0,
+      "replacement_character_count": 0,
+      "nul_count": 0,
+      "unexpected_controls": []
+    },
+    {
+      "path": "data/raw/199802.txt",
+      "size_bytes": 10877222,
+      "sha256": "e2216b979d189f16788a5346018162bb0bf99ad68583daf5f017d88d157299a4",
+      "encoding": "utf-8",
+      "has_utf8_bom": false,
+      "line_count": 21357,
+      "crlf_count": 21357,
+      "lf_only_count": 0,
+      "replacement_character_count": 0,
+      "nul_count": 0,
+      "unexpected_controls": []
+    },
+    {
+      "path": "data/raw/199803.txt",
+      "size_bytes": 11899997,
+      "sha256": "8e0d28902647ca54b13a5f71bf045cc12a8cd3899769b2ec21b21fdca4320eb4",
+      "encoding": "utf-8",
+      "has_utf8_bom": false,
+      "line_count": 24562,
+      "crlf_count": 24562,
+      "lf_only_count": 0,
+      "replacement_character_count": 0,
+      "nul_count": 0,
+      "unexpected_controls": [
+        {
+          "codepoint": "U+0016",
+          "character_offset": 65,
+          "byte_offset": 93,
+          "line": 1,
+          "column": 66,
+          "context_escaped": "/m  \\u6b21/q  \\u4f1a\\u8bae/n  \\u95ed\\x16/v  \\r\\n19980301-"
+        }
+      ]
+    },
+    {
+      "path": "data/raw/199804.txt",
+      "size_bytes": 12203888,
+      "sha256": "baf804e24f71a427e0c5bae0987a5f9f9c4620c2e9698f91efa80ba51ac8e0fa",
+      "encoding": "utf-8",
+      "has_utf8_bom": false,
+      "line_count": 24957,
+      "crlf_count": 24957,
+      "lf_only_count": 0,
+      "replacement_character_count": 0,
+      "nul_count": 0,
+      "unexpected_controls": []
+    },
+    {
+      "path": "data/raw/199805.txt",
+      "size_bytes": 11809696,
+      "sha256": "2e3441ce664ae13e9ddbe8c88fac3822e143269ad95a8006d503c09e4e3dfce5",
+      "encoding": "utf-8",
+      "has_utf8_bom": false,
+      "line_count": 24739,
+      "crlf_count": 24739,
+      "lf_only_count": 0,
+      "replacement_character_count": 0,
+      "nul_count": 0,
+      "unexpected_controls": []
+    },
+    {
+      "path": "data/raw/199806.txt",
+      "size_bytes": 11865441,
+      "sha256": "7003015fe510b946afa24457452cd62df26c6b5d82726e0031275f26c9100a2e",
+      "encoding": "utf-8",
+      "has_utf8_bom": false,
+      "line_count": 24410,
+      "crlf_count": 24410,
+      "lf_only_count": 0,
+      "replacement_character_count": 0,
+      "nul_count": 0,
+      "unexpected_controls": []
+    }
+  ]
+}

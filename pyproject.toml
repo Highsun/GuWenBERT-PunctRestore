@@ -1,0 +1,11 @@
+[project]
+name = "guwenbert-punctrestore"
+version = "0.1.0"
+description = "BERT fine-tuning and batched sliding-window punctuation restoration for classical Chinese."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+dependencies = []
+
+[tool.uv]
+package = false
