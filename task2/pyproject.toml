@@ -1,0 +1,11 @@
+[project]
+name = "guwenbert-punctrestore-task2"
+version = "0.1.0"
+description = "Independent task 2 project for GuWenBERT-PunctRestore."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+dependencies = []
+
+[tool.uv]
+package = false

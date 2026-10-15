@@ -1,0 +1,12 @@
+{
+  "model_id": "ethanyt/guwenbert-base",
+  "requested_revision": "main",
+  "resolved_revision": "eff0d4a5196d7bf7b8be746c5c6437e89d8b9061",
+  "local_path": "models/task1/pretrained/ethanyt--guwenbert-base/eff0d4a5196d7bf7b8be746c5c6437e89d8b9061",
+  "files": {
+    "README.md": "e8526e1bb8203049dba57f36aad9d8f491746450b3def4153e647e8da2ec123f",
+    "pytorch_model.bin": "6bcf18905048c2de864f21e57a248ba80326aa232965c16a7375ab0fb4d59c5e",
+    "vocab.txt": "85a650161233174f26cf26b5bac3248748def50d65956b94bf305618755cb660",
+    "config.json": "c77dd1012bc22fea2d6d422359499c2ef095ae412300ef5d726e96b0a622904c"
+  }
+}

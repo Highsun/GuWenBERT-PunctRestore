@@ -42,10 +42,16 @@ Thumbs.db
 !/data/splits/.gitkeep
 
 # Models and generated outputs: retain empty directory markers
-/models/*
-!/models/.gitkeep
-/outputs/*
-!/outputs/.gitkeep
+/models/**
+!/models/task1/
+!/models/task1/.gitkeep
+!/models/task2/
+!/models/task2/.gitkeep
+/outputs/**
+!/outputs/task1/
+!/outputs/task1/.gitkeep
+!/outputs/task2/
+!/outputs/task2/.gitkeep
 *.log
 *.pt
 *.pth
