@@ -14,7 +14,9 @@
 
 不将整句直接交给 tokenizer。对每个字符分别执行 `tokenizer.encode(character, add_special_tokens=False)`，空编码用 `unk_token_id`，连接所有 subtoken 列表，前后添加 CLS/SEP。监督和解码均取每个字符的第一个 subtoken；后续 subtoken、CLS、SEP、padding 不产生输出。
 
-训练窗最多 256 token，包含两个特殊 token。按 subtoken 实际长度切分，不能假定一个字符必定一个 token，也不能切开一个字符的 subtoken 列表。任务二可研究其他窗长，但不能超过模型配置的最大位置数，须记录与训练窗长的差异。
+训练窗最多 256 token，包含两个特殊 token。按 subtoken 实际长度切分，不能假定一个字符必定一个 token，也不能切开一个字符的 subtoken 列表。当前是 RoBERTa 架构，配置的 514 个位置包含位置偏移，有效输入上限为 512 token，不能直接把 514 当作输入长度。任务二可研究其他窗长，但须遵守有效上限并记录与训练窗长的差异。
+
+`reference_predictions.json` 保存四个参考案例（含空文本、未知字符），已在没有导入任何任务一源码的独立 Transformers 进程中核对一致。古文短句只用于加载演示，不构成带标注的古文效果评测。
 
 ## 规范化与计分
 

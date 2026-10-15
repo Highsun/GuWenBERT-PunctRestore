@@ -1,0 +1,23 @@
+{
+  "unit_tests": {
+    "command": "uv run --locked --offline pytest -q",
+    "passed": 13,
+    "failed": 0
+  },
+  "independent_export": {
+    "passed": true,
+    "reference_cases": 4,
+    "task1_source_imported": false,
+    "long_input_rejection_verified": true,
+    "precision": "bf16",
+    "note": "Reference texts are demonstrations, not an annotated classical-Chinese evaluation."
+  },
+  "prediction_traceability": {
+    "passed": true,
+    "test_articles": 316,
+    "test_windows": 866,
+    "characters_exactly_once": 178882,
+    "independent_micro_f1_recalculation": true
+  },
+  "all_six_raw_checksums_unchanged": true
+}

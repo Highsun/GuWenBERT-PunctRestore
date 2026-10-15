@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "status": "validated; tag created after report commit",
+  "intended_tag": "task1-v1.0",
+  "experiment": "pd9801-guwenbert-v1",
+  "training_source_commit": "6e3d708b98ca56736667990771e8224c7bb483b0",
+  "source_files_sha256": {
+    "task1/configs/pd9801.toml": "6373dc4bea080343bd8575c9c0dbd1ef20fb7caa06ff4e157fce98d0e6c49eff",
+    "task1/pyproject.toml": "354f04062dbdd00438dda73ce015b0a52cc63aaef4b77aefb5913cf35e6f1460",
+    "task1/scripts/run.py": "0b8a67c7ae3ff23888d54bf8bcad7963550fc65318c27dcee55a1d15904fc34a",
+    "task1/src/guwenbert_task1/__init__.py": "3d98e496d936e6607736360ad4c865b9ef230347647691f32cb669be4f2ea0cb",
+    "task1/src/guwenbert_task1/cli.py": "d2fb005578f725f0c10a574090ed9f3803823e358403ac425b296b048215ff48",
+    "task1/src/guwenbert_task1/common.py": "bec7992a801bde8521e77f959c30b2faea9158450c8825d41e9d738c105c37fb",
+    "task1/src/guwenbert_task1/data.py": "3583ce1224b82a53aa6fb4295ce16facf8dc53cabba1564bfd2784ab3c25a785",
+    "task1/src/guwenbert_task1/encoding.py": "ed7f18a1d65234cdac45f7b1f9b3b29c81bbb8ff655d49968a0da8dc97a80b6b",
+    "task1/src/guwenbert_task1/metrics.py": "5a3e878b84adbc43a4fd8bcc6f97a785dc3f4c20b83f4e99cdf9d723e6b84029",
+    "task1/src/guwenbert_task1/reporting.py": "a91299e6e295ed841507c6ab65448e79e87f537d2425d72589f5cb5f9017116d",
+    "task1/src/guwenbert_task1/runtime.py": "0d9171855c181e9ac6758a46a9c4fef0f71a838fd5f3946ea43684a7f3c0d560",
+    "task1/uv.lock": "3c0ff46df1a7442d8c2fe2d9b55c106ab9e97eccae015f0be4fc5552df9e380b"
+  },
+  "model_path": "models/task1/pd9801-guwenbert-v1",
+  "model_files_sha256": {
+    "tokenizer_config.json": "efc07e857c91d689ded0e97dc167c67d8d79560797269a6f3af3dd2262cce7e5",
+    "labels.json": "bd029ee177996b4dc7279f3d9ecd2c34cbfa00f8e96e02b65bd8d5bd24851c7a",
+    "vocab.txt": "85a650161233174f26cf26b5bac3248748def50d65956b94bf305618755cb660",
+    "reference_predictions.json": "be24f3514f00d041efa03890c822e0d89db92e01893c25cb1670705cc1fdfe04",
+    "config.json": "7d32ccfcd07091dfcd31bef2cb20a5f3bfc7cd7f29ef3901644af91a7bc3b36d",
+    "tokenizer.json": "6323d368a37f4cfc61ce350d58c4069d98838dc0b8d7608918519dca349ba2a9",
+    "model.safetensors": "dda7bd7da2e5386711f6f12a1bf8eb3a0611ea8614496b218aa400048195c43d",
+    "inference_contract.json": "cccb3a56509d73bfc9c64fdbaaa92b28d2dae5b4282561b374cea505526e5e90",
+    "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+  },
+  "dataset": {
+    "dataset_version": "pd9801-v1",
+    "sources": [
+      {
+        "path": "data/raw/199801.txt",
+        "sha256": "41760f40739b0f301ab29e99ab14565e7cd4b06128eb3a6ac18bce277a6075a8"
+      }
+    ],
+    "seed": 42,
+    "nonempty_lines": 19484,
+    "source_articles": 3148,
+    "deduplicated_articles": 3146,
+    "duplicate_articles_removed": 2,
+    "duplicate_label_conflicts": 0,
+    "labels": [
+      "O",
+      "，",
+      "。",
+      "？",
+      "！",
+      "；",
+      "：",
+      "、"
+    ],
+    "audit": {
+      "excluded_punctuation:—": 2167,
+      "excluded_punctuation:（": 4356,
+      "excluded_punctuation:）": 4356,
+      "target_punctuation": 141350,
+      "excluded_punctuation:《": 1940,
+      "excluded_punctuation:》": 1940,
+      "excluded_punctuation:“": 7970,
+      "excluded_punctuation:”": 7943,
+      "excluded_punctuation:’": 205,
+      "excluded_punctuation:／": 46,
+      "excluded_punctuation:『": 698,
+      "excluded_punctuation:』": 698,
+      "excluded_punctuation:‘": 128,
+      "excluded_punctuation:·": 1002,
+      "excluded_punctuation:…": 696,
+      "excluded_punctuation:/": 52,
+      "excluded_punctuation:．": 77,
+      "excluded_punctuation:＊": 29,
+      "excluded_punctuation:－": 118,
+      "collapsed_target_sequences": 12,
+      "excluded_punctuation:〈": 6,
+      "excluded_punctuation:〉": 6,
+      "excluded_punctuation:［": 1,
+      "excluded_punctuation:］": 1
+    },
+    "splits": {
+      "train": {
+        "articles": 2516,
+        "characters": 1320974,
+        "label_counts": {
+          "O": 1208463,
+          "，": 59523,
+          "。": 28677,
+          "？": 603,
+          "！": 533,
+          "；": 2065,
+          "：": 2596,
+          "、": 18514
+        },
+        "path": "data/splits/task1/pd9801-v1/train.jsonl",
+        "sha256": "e8f89cc80a9160bc5791ced259168592ae519a6179504f7ca4a879341576e353"
+      },
+      "validation": {
+        "articles": 314,
+        "characters": 166071,
+        "label_counts": {
+          "O": 152333,
+          "，": 7336,
+          "。": 3497,
+          "？": 59,
+          "！": 46,
+          "；": 311,
+          "：": 295,
+          "、": 2194
+        },
+        "path": "data/splits/task1/pd9801-v1/validation.jsonl",
+        "sha256": "d6591a57f9b956840bd03003388ccd8938c996b3a416eeee9f72977d893df686"
+      },
+      "test": {
+        "articles": 316,
+        "characters": 178882,
+        "label_counts": {
+          "O": 163793,
+          "，": 8061,
+          "。": 3809,
+          "？": 100,
+          "！": 86,
+          "；": 260,
+          "：": 367,
+          "、": 2406
+        },
+        "path": "data/splits/task1/pd9801-v1/test.jsonl",
+        "sha256": "506b30d738b3597954effab8e74fc151754847bc0376210bc9e5d6c99c2b0717"
+      }
+    }
+  },
+  "outputs": {
+    "outputs/task1/pd9801-guwenbert-v1/config.json": "dd8a5e251fae608db80b89cfa1b530b37f2c6f1760d5831319a5cc331dc02296",
+    "outputs/task1/pd9801-guwenbert-v1/dataset.json": "d862a78a73f7c5c91f3355b86129b65598de0363158dd970cbf11a1513e1116e",
+    "outputs/task1/pd9801-guwenbert-v1/demo.json": "be24f3514f00d041efa03890c822e0d89db92e01893c25cb1670705cc1fdfe04",
+    "outputs/task1/pd9801-guwenbert-v1/environment.json": "58529682939354b35fc38ee006f4c32c506175b1b00996c35a7ecfc086cdb365",
+    "outputs/task1/pd9801-guwenbert-v1/export-validation.json": "d874c04c48990693a88b38363a1b1f155ee5f7be251f3442d5ecba40932505ef",
+    "outputs/task1/pd9801-guwenbert-v1/history.json": "2d42f7a809b4c5edf4eeea2b3397bee6834f5344c3b94bc8d26e23be1652be3c",
+    "outputs/task1/pd9801-guwenbert-v1/progress.jsonl": "1f998e6ee9e875fa6e3a5f422638bcde58524292b175d228fd3673519cdf8a9c",
+    "outputs/task1/pd9801-guwenbert-v1/test-predictions.jsonl": "9fb54788653876f3e77f0d21d5319d59c422d89e18691373ba53ae56c70eb265",
+    "outputs/task1/pd9801-guwenbert-v1/test-window-index.jsonl": "557429d3aa93762db523d5264d243751f77f3cc5eca4d4bf41933079bbf73748",
+    "outputs/task1/pd9801-guwenbert-v1/test.json": "85367475f628c16b0d60f4878a6fa18ccf0c7e17e724ef96cb47c97ab3be6db2",
+    "outputs/task1/pd9801-guwenbert-v1/training.json": "26d00076bab92a614d2ede4d34e629c46327f5776318e2e42c9e5d5f2737c065"
+  },
+  "reports": {
+    "task1/reports/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "task1/reports/experiment.md": "16a7e090add087189c05c5b9152e8ac95d57435ebf375e526cb86dd9be205e45",
+    "task1/reports/handoff.md": "b43ba50b4b232a7e04f4702fac7cf0673bbb36749f1b4b7959ae9922e23daa65",
+    "task1/reports/pretrained-model.json": "37f5dc35d100bcebddd38911e081a8c852a9c583cf4c1b56fd6debf4c6b811e6",
+    "task1/reports/results.json": "40aa6989292524f96172a21b0ab0f9646487f5ff1c97a655ff11992519c71384",
+    "task1/reports/validation.json": "48a7292def7941c55f63d2b900d6758d10c873a765af770dcbf1b2b542c5b741"
+  }
+}
