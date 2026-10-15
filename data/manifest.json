@@ -1,98 +1,66 @@
 {
-  "schema_version": 1,
-  "audit_date": "2026-10-15",
-  "timezone": "Asia/Shanghai",
-  "corpus": "人民日报 1998 年 1—6 月（用户换源提供）",
-  "source_url": null,
-  "license": null,
-  "audit_scope": "只读 UTF-8 严格解码、文件校验与控制字符检查；未清洗或修改原始字节",
+  "schema_version": 2,
+  "dataset": "CCLUE punctuation",
+  "repository": "https://github.com/Ethan-yt/CCLUE",
+  "revision": "ed481c453c1c36397f86905a2bda625ecc5607e1",
+  "encoding": "utf-8",
+  "repository_license": "Apache-2.0",
   "files": [
     {
-      "path": "data/raw/199801.txt",
-      "size_bytes": 10666468,
-      "sha256": "41760f40739b0f301ab29e99ab14565e7cd4b06128eb3a6ac18bce277a6075a8",
-      "encoding": "utf-8",
-      "has_utf8_bom": false,
-      "line_count": 22564,
-      "crlf_count": 22564,
-      "lf_only_count": 0,
-      "replacement_character_count": 0,
-      "nul_count": 0,
-      "unexpected_controls": []
+      "upstream_path": "data/punctuation/train.txt",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/train.txt",
+      "size_bytes": 28271171,
+      "sha256": "ec5c18082475ec786e05eb0e168092ac767e3192ba984409af82ec97a33b3913"
     },
     {
-      "path": "data/raw/199802.txt",
-      "size_bytes": 10877222,
-      "sha256": "e2216b979d189f16788a5346018162bb0bf99ad68583daf5f017d88d157299a4",
-      "encoding": "utf-8",
-      "has_utf8_bom": false,
-      "line_count": 21357,
-      "crlf_count": 21357,
-      "lf_only_count": 0,
-      "replacement_character_count": 0,
-      "nul_count": 0,
-      "unexpected_controls": []
+      "upstream_path": "data/punctuation/dev.txt",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/dev.txt",
+      "size_bytes": 4232216,
+      "sha256": "16d12a47b4de7685bfa756e035fe31132715730becb7a221e3f2d9d9edb9c282"
     },
     {
-      "path": "data/raw/199803.txt",
-      "size_bytes": 11899997,
-      "sha256": "8e0d28902647ca54b13a5f71bf045cc12a8cd3899769b2ec21b21fdca4320eb4",
-      "encoding": "utf-8",
-      "has_utf8_bom": false,
-      "line_count": 24562,
-      "crlf_count": 24562,
-      "lf_only_count": 0,
-      "replacement_character_count": 0,
-      "nul_count": 0,
-      "unexpected_controls": [
-        {
-          "codepoint": "U+0016",
-          "character_offset": 65,
-          "byte_offset": 93,
-          "line": 1,
-          "column": 66,
-          "context_escaped": "/m  \\u6b21/q  \\u4f1a\\u8bae/n  \\u95ed\\x16/v  \\r\\n19980301-"
-        }
-      ]
+      "upstream_path": "data/punctuation/test.txt",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/test.txt",
+      "size_bytes": 5177267,
+      "sha256": "b364aee5a5ee03817aad25f0553f024b2b416b8cfdf16cc8af394efd50652ab1"
     },
     {
-      "path": "data/raw/199804.txt",
-      "size_bytes": 12203888,
-      "sha256": "baf804e24f71a427e0c5bae0987a5f9f9c4620c2e9698f91efa80ba51ac8e0fa",
-      "encoding": "utf-8",
-      "has_utf8_bom": false,
-      "line_count": 24957,
-      "crlf_count": 24957,
-      "lf_only_count": 0,
-      "replacement_character_count": 0,
-      "nul_count": 0,
-      "unexpected_controls": []
+      "upstream_path": "data/punctuation/punctuation.py",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation/punctuation.py",
+      "size_bytes": 5868,
+      "sha256": "1238b7a6b9cc800352abff936e869c56aae63d49f6ee2ad80385c5366de9975c"
     },
     {
-      "path": "data/raw/199805.txt",
-      "size_bytes": 11809696,
-      "sha256": "2e3441ce664ae13e9ddbe8c88fac3822e143269ad95a8006d503c09e4e3dfce5",
-      "encoding": "utf-8",
-      "has_utf8_bom": false,
-      "line_count": 24739,
-      "crlf_count": 24739,
-      "lf_only_count": 0,
-      "replacement_character_count": 0,
-      "nul_count": 0,
-      "unexpected_controls": []
+      "upstream_path": "data/punctuation.ipynb",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/data/punctuation.ipynb",
+      "size_bytes": 29451,
+      "sha256": "d7fbb5d07ec644451222f043481d9e2d87a35eb61446aca5040fd16efb575a65"
     },
     {
-      "path": "data/raw/199806.txt",
-      "size_bytes": 11865441,
-      "sha256": "7003015fe510b946afa24457452cd62df26c6b5d82726e0031275f26c9100a2e",
-      "encoding": "utf-8",
-      "has_utf8_bom": false,
-      "line_count": 24410,
-      "crlf_count": 24410,
-      "lf_only_count": 0,
-      "replacement_character_count": 0,
-      "nul_count": 0,
-      "unexpected_controls": []
+      "upstream_path": "README.md",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/README.md",
+      "size_bytes": 3460,
+      "sha256": "539c7fde8fd5b0a80bd62523c36d4d381943c5e156409df23283beb8b6758a4b"
+    },
+    {
+      "upstream_path": "LICENSE",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/LICENSE",
+      "size_bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "upstream_path": "run_sequence_labeling.py",
+      "path": "data/raw/cclue/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+      "url": "https://raw.githubusercontent.com/Ethan-yt/CCLUE/ed481c453c1c36397f86905a2bda625ecc5607e1/run_sequence_labeling.py",
+      "size_bytes": 22487,
+      "sha256": "0504a0c605e202b3f4010f3f2efafe17c8465f057e40c05b981ad2fae06357fb"
     }
   ]
 }

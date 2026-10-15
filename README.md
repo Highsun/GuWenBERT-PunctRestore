@@ -1,152 +1,75 @@
 # GuWenBERT-PunctRestore
 
-基于预训练 BERT 的古文断句与标点恢复编程练习，重点是模型微调应用和长文本的批量滑窗推理。
+任务一：用通用中文预训练 BERT 在 CCLUE 古文数据上微调断句标点模型；用古文预训练 GuwenBERT 做同数据对照。任务二：使用冻结主模型，研究长文本串行滑窗与批量滑窗的推理质量和效率。
 
-**任务一已完成真实训练与独立测试，任务二仍为初始化骨架。** 人民日报 9801 留出测试：七类标点 micro-F1 为 68.95%，macro-F1 为 48.98%，句末边界 F1 为 73.09%。完整数据、设置与局限见 [实验报告](task1/reports/experiment.md)，复现命令见 [任务一 README](task1/README.md)。这不是古文标注集上的质量结论。
+当前任务一 v2 已完成代码与数据迁移，真实实验结果见 [实验总报告](task1/reports/experiment.md)。任务二仍是独立空骨架，不开展实现或训练。旧版代码和报告保留在历史 Git 标签中；旧语料、派生数据、微调权重和运行输出已按用户要求移除，不能据标签恢复这些本地文件。
 
-## 任务理解
+## 任务定位
 
-本项目使用已经预训练好的 BERT，通过现成的带标点语料微调标点恢复模型，不从零预训练 BERT。练习允许使用现代文语料，例如人民日报 9801；现代文测试结果不能直接当作古文效果结论。
+- 主实验：`google-bert/bert-base-chinese` → CCLUE 原生七类标点微调 → 官方测试记录上的独立评测。
+- 对照实验：`ethanyt/guwenbert-base` → 同一数据和设置微调 → 同一测试集；不直接使用现成标点模型。
+- 任务二：滑窗解决 token 上限，batch 提高 GPU 利用率，重叠区合并保证正文完整。核心是推理加速；重叠本身会增加计算量，不保证更快。
 
-任务一已实现数据制备、微调和独立测试流程，以字符后的 `O` 或 `，。？！；：、` 为预测目标。连续目标标点合并、非目标标点移除并审计，精确规则与 tokenizer 对齐方式见任务一文档。
+## 目录与 Git
 
-任务二是解决长文本推理效率问题。BERT 通常最多接收 512 个 token，古文段落可能有数千字，需要分窗处理。题目给出的基线是每次输入约 400 字，仅取前约 300 字并在句号处截断，再处理下一窗；这种方法依赖上一窗结果，难以充分利用 GPU batch。
-
-后续拟实现并比较以下流程：
-
-1. 串行基线：按题目描述，在预测句号后确定下一窗起点，记录质量和耗时。
-2. 批量滑窗：预先生成相互重叠的窗口，记录原文位置，按长度组 batch 并统一 padding，一次前向处理多个窗口。
-3. 结果合并：根据原文位置，将重叠区预测合并；比较保留窗口中心区域或加权合并分数的方案，确保字符不丢失、不重复、顺序不变。
-4. 对照评测：在相同模型、文本和精度设置下，报告质量、字符吞吐量、端到端耗时和显存峰值。
-
-窗口长度须按实际 tokenizer 的 token 数计算，并为特殊 token 预留位置，不能假定 400 个字符恒等于 400 个 token。模型的实际长度上限也需读取配置确认。以上是后续设计方向，当前没有对应实现或实验结果。
-
-## 工作目录与 Git 范围
-
-外层工作目录：`/home/highsun/code/GuWenBERT-PunctRestore`。
-
-**项目根目录及 Git 仓库根目录：`/home/highsun/code/GuWenBERT-PunctRestore/code`。** 后续所有项目代码、配置、缓存、模型和实验输出均放在该目录下。执行项目命令前先进入项目根目录：
-
-```bash
-cd /home/highsun/code/GuWenBERT-PunctRestore/code
-```
-
-仓库使用 `main` 分支，远程 `origin` 为 [Highsun/GuWenBERT-PunctRestore](https://github.com/Highsun/GuWenBERT-PunctRestore)。GitHub 仓库根直接对应本地 `code/`，不会再嵌套一层 `code/`。外层工作目录不纳入本仓库。
-
-原始语料、派生数据、虚拟环境、缓存、模型权重和运行输出通过 `.gitignore` 排除；源代码、配置、文档、语料元数据清单和 `uv.lock` 纳入版本管理。语料本体不上传 GitHub。
-
-## 目录结构
+工作目录为 `/home/highsun/code/GuWenBERT-PunctRestore`，项目和唯一仓库根为其下的 `code/`。所有代码、缓存、模型和输出均保存在项目内。远程为 [Highsun/GuWenBERT-PunctRestore](https://github.com/Highsun/GuWenBERT-PunctRestore)，分支 `main`；线上仓库根对应本地 `code/`。
 
 ```text
 code/
-├── README.md
-├── LICENSE
-├── AGENTS.md                  # 本项目的协作与阶段约定
-├── pyproject.toml             # 项目元数据与依赖声明
-├── uv.lock                    # uv 依赖锁定文件
-├── uv.toml                    # 将 uv 缓存限定在项目内
-├── .python-version            # Python 3.12
-├── .gitignore
-├── .gitattributes
-├── .editorconfig
+├── README.md、LICENSE、AGENTS.md
+├── pyproject.toml、uv.lock      # 根目录初始化环境
 ├── data/
-│   ├── README.md              # 数据保存与使用约定
-│   ├── manifest.json          # 语料路径、编码、校验值及审计结果
-│   ├── raw/                   # 199801.txt—199806.txt，不提交语料
-│   ├── processed/task1/       # 任务一的版本化派生数据，不提交
-│   └── splits/task1/          # 任务一的独立数据划分，不提交
+│   ├── README.md、manifest.json
+│   ├── raw/cclue/<commit>/     # 原始 CoNLL、来源与许可，不提交
+│   ├── processed/task1/cclue-punc-v2/
+│   └── splits/task1/cclue-punc-v2/
 ├── docs/
-│   ├── corpus-inventory.md    # 原始语料编码、大小、校验值
-│   └── task-boundaries.md     # 任务边界、冻结与交接约定
-├── task1/                     # 数据制备、微调和独立测试
-│   ├── README.md
-│   ├── pyproject.toml         # 任务一独立依赖
-│   ├── uv.lock
-│   ├── .python-version
-│   ├── src/guwenbert_task1/    # 任务一数据、训练与评测实现
-│   ├── configs/
-│   ├── scripts/
-│   ├── tests/
-│   └── reports/               # 任务一实验报告与冻结记录
-├── task2/                     # 串行基线、批量滑窗与性能评测
-│   └── …                     # 与 task1/ 相同的独立结构
-├── models/{task1,task2}/      # 分任务保存模型，不提交权重
-├── outputs/{task1,task2}/     # 分任务保存运行结果，不提交
-├── .venv/                     # 根目录初始化环境，不提交
-└── .cache/                    # 本地缓存，不提交
+│   ├── corpus-inventory.md     # 实际数据核验与标签定义
+│   └── task-boundaries.md      # 两项任务边界与冻结约定
+├── task1/
+│   ├── pyproject.toml、uv.lock、.python-version
+│   ├── src/guwenbert_task1/    # 独立数据、训练、评测与报告实现
+│   ├── configs/               # 通用 BERT 主实验与 GuwenBERT 对照
+│   ├── scripts/、tests/
+│   └── reports/               # 分实验报告、比较、来源与冻结清单
+├── task2/                     # 独立项目，源码目前为空
+├── models/task1/              # 两个微调模型和预训练权重，不提交
+├── outputs/task1/             # 分实验运行记录与详细预测，不提交
+└── .cache/                    # 根目录初始化缓存，不提交
 ```
 
-空目录使用 `.gitkeep` 保留。用户换源后的六份原始文件已归入 `data/raw/`，原始字节保持不变。任务一的派生数据及划分版本为 `pd9801-v1`。克隆仓库后需自行提供语料，按 `manifest.json` 核对原始版本，再根据任务一命令生成派生数据；权重、语料和详细预测均不随 Git 分发。
+`task1/` 与 `task2/` 各有自己的依赖声明、锁文件、虚拟环境、配置、脚本、测试和报告，不构成共享锁文件的 uv workspace，也不跨任务导入源码。任务二只读冻结模型、标签、tokenizer 和数据版本，运行结果另存 `outputs/task2/`。
 
-## 任务隔离与冻结
+## 数据与质量边界
 
-[任务一](task1/README.md)与[任务二](task2/README.md)各自拥有源码、配置、脚本、测试、依赖声明、锁文件和实验报告。两者是独立 uv 项目，不组成共享锁文件的 uv workspace。根目录环境仅用于初始化，不作为两个任务的共同运行环境。
+数据采用 [CCLUE 官方仓库](https://github.com/Ethan-yt/CCLUE) `data/punctuation` 的固定提交，UTF-8 严格读取。直接使用逐字符 punc_tags，保持官方开发与测试记录。训练集移除与留出集完全重复的正文，以及训练内部完全重复正文；不进行另一次随机划分。
 
-任务一完成训练、独立测试和报告后，以本地 Git 标签 `task1-v1.0` 冻结代码，同时通过 [冻结清单](task1/reports/freeze-manifest.json)记录依赖、数据划分、模型及结果校验值。后续任务二不得改写这个版本。标签只保存代码与文档，不会自动备份被忽略的模型和数据。
+实际非空训练/开发/测试记录数为 26,932/4,074/3,992；训练清理后为 26,890 条。开发、测试内部各有 2 条重复正文，保留以维持官方测试记录。官方 README 的训练/开发数略有不同，详见 [数据核验](docs/corpus-inventory.md)。
 
-任务二仅按约定读取任务一的冻结模型、tokenizer、标签映射和评测数据，不直接导入任务一源码，不修改任务一的代码、配置、锁文件或成果。串行滑窗基线与批量推理方案都实现在任务二内。确需修正任务一时，形成新版本并保留旧版本，不随任务二优化直接改写。
+本次只做七类标点任务，标签为 `O` 与 `，。？！、：；`；quote_tags 和 book_tags 保留供审计，不训练引号及书名号恢复。任意标点断句 F1 与仅 `。？！` 的句末边界 F1 分别报告。古籍版本和基座预训练语料可能重叠，不宣称完全无污染，也不将本次分数直接与其他数据集比较。
 
-两项任务的输出分别写入 `outputs/task1/`、`outputs/task2/`，模型分别写入 `models/task1/`、`models/task2/`，报告分别写入对应的 `reports/`。派生数据和划分应按任务与版本分目录；任务二复用任务一的数据时只读，新增长文本评测数据另存。详细约定见 [任务边界与冻结流程](docs/task-boundaries.md)。
+## 环境和运行
 
-## Python 环境
-
-使用 **uv 管理依赖，venv 隔离环境，Python 3.12**。初始化使用本机已有的 Python 3.12.15 和 uv 0.13.0；不使用系统 Python 安装项目依赖。
-
-根目录 `.venv/` 仅保留初始化用途，依赖列表为空。任务一使用独立 `.venv/` 和已锁定的 CUDA PyTorch、Transformers、NumPy 与 pytest 依赖，入口及复现命令见 [任务一 README](task1/README.md)。任务二依赖列表和源码骨架仍为空。两个任务均采用 uv 非打包模式，由各自脚本定位源码。
-
-本机已有 Python 3.12 时，可以离线重建当前环境：
+WSL、Python 3.12、uv/venv；任务一锁定 CUDA 12.8 的 PyTorch 2.9.1、Transformers 等依赖。设备为 RTX 5070 12GB，GPU 操作须在允许 WSL 设备访问的终端执行。缓存均限定在项目内，不使用系统 Python 安装依赖。
 
 ```bash
-uv venv --python 3.12 --no-python-downloads .venv
-uv sync --locked --offline
-uv run --locked --offline python --version
+cd /home/highsun/code/GuWenBERT-PunctRestore/code/task1
+uv sync --locked
+uv run --locked python scripts/run.py fetch-data
+uv run --locked python scripts/run.py prepare
+uv run --locked python scripts/run.py download
+uv run --locked python scripts/run.py train
+uv run --locked python scripts/run.py verify
+uv run --locked python scripts/run.py evaluate
+uv run --locked python scripts/run.py report
 ```
 
-如需激活环境：
+对照实验在 `download`、`train`、`verify`、`evaluate`、`report` 命令后添加 `--config configs/cclue_guwenbert.toml`；两个实验都完成后执行 `freeze`，再提交报告并创建新的 `task1-v2.0` 标签。完整说明见 [任务一 README](task1/README.md)。
 
-```bash
-source .venv/bin/activate
-python --version
-deactivate
-```
+数据下载与模型下载需要网络；依赖和权重齐全后的训练/测试可离线运行。训练以开发集选择最佳 epoch，独立测试不参与调参。已完成的实验不能被同名训练覆盖，重新实验须更换 `experiment`，数据规则改变须更换 `dataset_version`。
 
-根目录 `uv.toml` 将缓存写入 `.cache/uv/`。任务一已锁定 PyTorch 2.9.1+cu128、Transformers 4.57.6 等依赖，并由入口将 Hugging Face 缓存限定在任务目录内。依赖变更使用 `uv add`，同步更新声明和锁文件；已冻结任务须通过新版本记录变更。
+## 冻结与许可证
 
-先进入对应任务目录，再执行 `uv sync --locked` 和 `uv run ...`，分别使用 `task1/.venv/`、`task2/.venv/`，缓存写入各任务的 `.cache/uv/`。任务一的 uv 设置集中在其 `pyproject.toml`，任务二保留独立 `uv.toml`。运行环境和锁文件保持独立，任务二新增依赖只更新自身的声明与锁文件。
+任务一 v2 使用新标签 `task1-v2.0`，不覆盖历史 `task1-v1.0`。冻结清单记录代码、配置、锁文件、数据、模型和结果校验值；Git 标签不自动备份权重及语料。任务二后续以 v2 通用 BERT 主模型为默认输入。
 
-## 已有语料与编码
-
-当前使用用户换源后的六份语料，位于 `data/raw/199801.txt` 至 `199806.txt`，月份为 **1998 年 1—6 月**。本次任务一只使用题目指定的人民日报 9801，即 `199801.txt`；按文章划分训练/验证/测试集，2—6 月未参与。本清单的 UTF-8 结论仅适用于当前来源。
-
-六份文件均可完整按 **UTF-8（无 BOM）** 严格解码，没有 Unicode 替换字符 `U+FFFD` 或 NUL。VS Code 直接按 UTF-8 打开即可，无须转码。
-
-控制字符检查发现 `199803.txt` 第 1 行、第 66 个字符为 `U+0016`，字节偏移 93（从 0 开始）。它不影响 UTF-8 解码，但仍是需审计的控制字符，原文件保留不变。本次 1 月数据不含此项；任务一解析器会在派生文本中删除并记录控制字符，不推测修复正文。
-
-当前版本含行首编号、词性标签、空格分词和组合词标注。任务一已实现解析与正文还原、常用标点标签构造及格式审计；未知格式直接报错，不静默忽略。
-
-原始文件记录见 [语料清单](docs/corpus-inventory.md)和 [data/manifest.json](data/manifest.json)。任务一的派生数据审计、划分及校验值见实验报告和冻结清单，原始内容没有重写。
-
-## GPU 与实验约定
-
-硬件为桌面版 **NVIDIA RTX 5070，12GB 显存，WSL 环境**，已在沙箱外验证 NVML、CUDA 及 BF16 运算，并完成 batch=16、256-token 窗口的三轮微调。沙箱内可能阻止 GPU 访问，GPU 命令需在允许设备访问的终端执行。
-
-训练与推理 batch 分别设置，实际显存和耗时见实验报告。题目中的 batch 范围不作为所有窗长和模型都能运行的保证；任务二须独立测量其推理配置。
-
-## 后续工作与验收要求
-
-任务一的数据制备、真实微调、留出测试、导出与报告已完成，13 项自动测试及独立模型加载核对通过。完整结果保存在任务一报告。后续待办为：
-
-- 实现串行基线和批量滑窗，覆盖短文本、空文本、窗口边界、数千字长文本、特殊字符及无句号文本。
-- 对同一测试输入比较恢复质量和性能，推理耗时测量包括必要的 GPU 同步与预热，并区分模型前向耗时和端到端耗时。
-- 保存硬件、精度、token 窗长、重叠长度、batch、显存峰值、吞吐量和耗时，给出可复现命令。
-- 如需声称古文效果，另用独立且有可靠标注的古文样例评估，说明现代文训练的适用范围。
-
-## 当前初始化检查
-
-初始化完成时应满足：仓库根位于 `code/`，`origin` 指向指定 GitHub 仓库；虚拟环境使用 Python 3.12；依赖锁文件可离线同步；换源后的原始语料与清单校验值一致；Git 仅跟踪数据说明、元数据和空目录标记，不跟踪原始数据、派生数据、环境、缓存和未来运行产物。
-
-当前任务一已有完整业务实现和真实运行依据；任务二尚未实现，以上任务二待办不代表已经完成。
-
-## 许可证
-
-本项目新增的代码和文档采用 [MIT License](LICENSE)。用户提供的人民日报语料和未来引入的预训练模型不包含在该授权范围内，它们各自的使用与分发条件需单独确认；仓库默认不提交这些资源。
+项目新增代码与文档使用 [MIT License](LICENSE)。CCLUE 仓库及两个基座标示 Apache 2.0，原始数据与权重不随项目 MIT 重新授权，也不默认上传 GitHub。

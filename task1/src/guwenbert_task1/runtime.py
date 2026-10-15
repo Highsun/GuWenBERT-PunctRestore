@@ -6,6 +6,7 @@ from pathlib import Path
 import platform
 import random
 import subprocess
+import sys
 import time
 
 from .common import LABELS, ROOT, TASK, read_jsonl, render, setup_cache, sha256, write_json, write_jsonl
@@ -30,9 +31,11 @@ def download_model(config: dict) -> dict:
 
     info = HfApi().model_info(config["model_id"], revision=config["model_revision"])
     target = ROOT / "models/task1/pretrained" / config["model_id"].replace("/", "--") / info.sha
-    snapshot_download(repo_id=config["model_id"], revision=info.sha, local_dir=target, allow_patterns=["config.json", "vocab.txt", "pytorch_model.bin", "model.safetensors", "tokenizer.json", "tokenizer_config.json", "special_tokens_map.json", "README.md"])
+    available = {item.rfilename for item in info.siblings}
+    weight = "model.safetensors" if "model.safetensors" in available else "pytorch_model.bin"
+    snapshot_download(repo_id=config["model_id"], revision=info.sha, local_dir=target, allow_patterns=["config.json", "vocab.txt", weight, "tokenizer.json", "tokenizer_config.json", "special_tokens_map.json", "README.md"])
     result = {"model_id": config["model_id"], "requested_revision": config["model_revision"], "resolved_revision": info.sha, "local_path": str(target.relative_to(ROOT)), "files": {path.name: sha256(path) for path in target.iterdir() if path.is_file()}}
-    write_json(TASK / "reports/pretrained-model.json", result)
+    write_json(TASK / "reports" / config["experiment"] / "pretrained-model.json", result)
     return result
 
 
@@ -83,7 +86,7 @@ def evaluate_loader(model, loader, device, dtype, prediction_path: Path | None =
 def validate_dataset(config: dict) -> tuple[dict, Path]:
     split_dir = ROOT / "data/splits/task1" / config["dataset_version"]
     manifest = json.loads((split_dir / "manifest.json").read_text())
-    if manifest["dataset_version"] != config["dataset_version"]:
+    if manifest["dataset_version"] != config["dataset_version"] or manifest["revision"] != config["dataset_revision"] or manifest["labels"] != LABELS:
         raise ValueError("Dataset version mismatch")
     for relative in manifest["sources"]:
         if sha256(ROOT / relative["path"]) != relative["sha256"]:
@@ -105,6 +108,11 @@ def source_hashes() -> dict:
     return {str(path.relative_to(ROOT)): sha256(path) for path in sorted(files)}
 
 
+def token_limit(model_config) -> int:
+    offset = model_config.pad_token_id + 1 if model_config.model_type == "roberta" else 0
+    return model_config.max_position_embeddings - offset
+
+
 def train(config: dict) -> dict:
     device, dtype = device_and_precision(config)
     torch.set_num_threads(config["num_threads"])
@@ -115,8 +123,9 @@ def train(config: dict) -> dict:
     # Seeded but not a promise of bit-for-bit CUDA reproducibility.
     torch.backends.cudnn.benchmark = False
     manifest, split_dir = validate_dataset(config)
-    source = json.loads((TASK / "reports/pretrained-model.json").read_text())
-    if source["model_id"] != config["model_id"]:
+    initial_source = source_hashes()
+    source = json.loads((TASK / "reports" / config["experiment"] / "pretrained-model.json").read_text())
+    if source["model_id"] != config["model_id"] or source["resolved_revision"] != config["model_revision"]:
         raise ValueError("Pretrained model source mismatch")
     pretrained = ROOT / source["local_path"]
     for name, digest in source["files"].items():
@@ -128,7 +137,9 @@ def train(config: dict) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     tokenizer = AutoTokenizer.from_pretrained(pretrained, local_files_only=True, use_fast=True)
     model = AutoModelForTokenClassification.from_pretrained(pretrained, local_files_only=True, num_labels=len(LABELS), id2label=dict(enumerate(LABELS)), label2id={label: index for index, label in enumerate(LABELS)}, attn_implementation="sdpa")
-    if config["max_length"] > model.config.max_position_embeddings or config["max_length"] % 8:
+    if tokenizer.pad_token_id != model.config.pad_token_id:
+        raise ValueError("Tokenizer and model disagree about padding token")
+    if config["max_length"] > token_limit(model.config) or config["max_length"] % 8:
         raise ValueError("max_length must be a multiple of 8 within model position limit")
     model.to(device)
     encoder = CharacterEncoder(tokenizer, config["max_length"])
@@ -191,9 +202,11 @@ def train(config: dict) -> dict:
                 model.save_pretrained(model_dir, safe_serialization=True)
                 tokenizer.save_pretrained(model_dir)
                 write_json(model_dir / "labels.json", LABELS)
-                write_json(model_dir / "inference_contract.json", {"schema_version": 1, "labels": LABELS, "prediction": "one punctuation label after each Unicode character", "alignment": "tokenize each character independently; label first subtoken; remaining subtokens and special tokens ignored", "empty_character_encoding": "use tokenizer.unk_token_id", "max_length_including_special_tokens": config["max_length"], "special_tokens": 2, "normalization": "task1 normalize_text; preserve numeric decimal/fraction separators and percent signs, drop other non-target Unicode punctuation; collapse consecutive targets with terminal precedence", "sentence_boundary_labels": ["。", "？", "！"], "pretrained_source": source, "dataset_version": config["dataset_version"], "precision": config["precision"]})
+                write_json(model_dir / "inference_contract.json", {"schema_version": 2, "labels": LABELS, "prediction": "CCLUE punc_tags: one punctuation label after each Unicode character", "alignment": "tokenize each character independently; label first subtoken; remaining subtokens and special tokens ignored", "empty_character_encoding": "use tokenizer.unk_token_id", "max_length_including_special_tokens": config["max_length"], "effective_model_token_limit": token_limit(model.config), "special_tokens": 2, "training_normalization": "none: preserve supplied CCLUE tokens and punc_tags exactly", "demo_removals": "，。？！、：；“”‘’《》〈〉 plus whitespace and Cc controls; retain other characters", "sentence_boundary_labels": ["。", "？", "！"], "segmentation_labels": LABELS[1:], "pretrained_source": source, "dataset_version": config["dataset_version"], "precision": config["precision"]})
         torch.cuda.synchronize()
-    result = {"config": config, "environment": env, "source_files_sha256": source_hashes(), "pretrained_source": source, "dataset": manifest, "train_windows": len(datasets["train"]), "validation_windows": len(datasets["validation"]), "total_steps": step, "best_epoch": best_epoch, "best_validation_micro_f1": best_f1, "training_seconds_including_validation_and_export": time.perf_counter() - started, "peak_allocated_bytes": torch.cuda.max_memory_allocated(), "peak_reserved_bytes": torch.cuda.max_memory_reserved(), "history": history, "model_path": str(model_dir.relative_to(ROOT))}
+    if source_hashes() != initial_source:
+        raise RuntimeError("Source changed while training; do not freeze this experiment")
+    result = {"config": config, "environment": env, "source_files_sha256": initial_source, "pretrained_source": source, "dataset": manifest, "train_windows": len(datasets["train"]), "validation_windows": len(datasets["validation"]), "total_steps": step, "best_epoch": best_epoch, "best_validation_micro_f1": best_f1, "training_seconds_including_validation_and_export": time.perf_counter() - started, "peak_allocated_bytes": torch.cuda.max_memory_allocated(), "peak_reserved_bytes": torch.cuda.max_memory_reserved(), "history": history, "model_path": str(model_dir.relative_to(ROOT))}
     write_json(output_dir / "training.json", result)
     return result
 
@@ -204,6 +217,8 @@ def evaluate(config: dict) -> dict:
     manifest, split_dir = validate_dataset(config)
     model_dir, output_dir = paths(config)
     training = json.loads((output_dir / "training.json").read_text())
+    if training["config"] != config:
+        raise ValueError("Evaluation config differs from the training experiment")
     tokenizer = AutoTokenizer.from_pretrained(model_dir, local_files_only=True, use_fast=True)
     model = AutoModelForTokenClassification.from_pretrained(model_dir, local_files_only=True, attn_implementation="sdpa").to(device)
     encoder = CharacterEncoder(tokenizer, config["max_length"])
@@ -213,7 +228,7 @@ def evaluate(config: dict) -> dict:
     started = time.perf_counter()
     metrics = evaluate_loader(model, loader, device, dtype, output_dir / "test-predictions.jsonl")
     torch.cuda.synchronize()
-    metrics.update(experiment=config["experiment"], best_epoch=training["best_epoch"], test_windows=len(windows), test_articles=manifest["splits"]["test"]["articles"], evaluation_seconds_including_prediction_write=time.perf_counter() - started, model_files={path.name: sha256(path) for path in model_dir.iterdir() if path.is_file()}, test_data_sha256=manifest["splits"]["test"]["sha256"])
+    metrics.update(experiment=config["experiment"], best_epoch=training["best_epoch"], test_windows=len(windows), test_records=manifest["splits"]["test"]["records"], evaluation_seconds_including_prediction_write=time.perf_counter() - started, model_files={path.name: sha256(path) for path in model_dir.iterdir() if path.is_file()}, test_data_sha256=manifest["splits"]["test"]["sha256"])
     # Store window identity separately so test predictions can be traced to articles.
     write_jsonl(output_dir / "test-window-index.jsonl", [{key: row[key] for key in ("article_id", "char_start", "char_end")} for row in windows])
     write_json(output_dir / "test.json", metrics)
@@ -221,10 +236,10 @@ def evaluate(config: dict) -> dict:
 
 
 def predict(config: dict, text: str, model_dir: Path | None = None) -> dict:
-    from .data import normalize_text
+    from .data import normalize_input
 
     model_dir = model_dir or paths(config)[0]
-    clean, _, audit = normalize_text(text)
+    clean, audit = normalize_input(text)
     if not clean:
         return {"input": text, "normalized": "", "output": "", "labels": [], "normalization_audit": dict(audit)}
     tokenizer = AutoTokenizer.from_pretrained(model_dir, local_files_only=True, use_fast=True)
@@ -240,3 +255,18 @@ def predict(config: dict, text: str, model_dir: Path | None = None) -> dict:
         predicted = model(input_ids=batch["input_ids"].to(device), attention_mask=batch["attention_mask"].to(device)).logits.argmax(-1)[0].cpu().tolist()
     labels = [label for label, position in zip(predicted, windows[0]["character_positions"]) if position >= 0]
     return {"input": text, "normalized": clean, "output": render(clean, labels), "labels": labels, "normalization_audit": dict(audit)}
+
+
+def verify(config: dict) -> dict:
+    model_dir, output_dir = paths(config)
+    texts = ["学而时习之不亦说乎有朋自远方来不亦乐乎", "太宗谓侍臣曰为君之道必须先存百姓", "ABC123𠀀\u0301", ""]
+    references = [predict(config, text) for text in texts]
+    try:
+        predict(config, "甲" * 1000)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Long input was not rejected")
+    write_json(model_dir / "reference_predictions.json", references)
+    subprocess.run([sys.executable, str(TASK / "scripts/verify_export.py"), "--model", str(model_dir), "--output", str(output_dir / "export-validation.json"), "--precision", config["precision"]], check=True)
+    return json.loads((output_dir / "export-validation.json").read_text())

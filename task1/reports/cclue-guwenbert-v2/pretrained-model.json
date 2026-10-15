@@ -1,6 +1,6 @@
 {
   "model_id": "ethanyt/guwenbert-base",
-  "requested_revision": "main",
+  "requested_revision": "eff0d4a5196d7bf7b8be746c5c6437e89d8b9061",
   "resolved_revision": "eff0d4a5196d7bf7b8be746c5c6437e89d8b9061",
   "local_path": "models/task1/pretrained/ethanyt--guwenbert-base/eff0d4a5196d7bf7b8be746c5c6437e89d8b9061",
   "files": {

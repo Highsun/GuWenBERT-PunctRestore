@@ -50,3 +50,4 @@ def test_punctuation_and_boundary_metrics_have_distinct_meaning():
     assert result["accuracy_including_O"] == 0.25
     assert np.isclose(result["punctuation_micro"]["f1"], 1 / 3)
     assert np.isclose(result["sentence_boundary"]["f1"], 2 / 3)
+    assert np.isclose(result["segmentation_any_punctuation"]["f1"], 2 / 3)

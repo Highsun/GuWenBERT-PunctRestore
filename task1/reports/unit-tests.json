@@ -1,0 +1,9 @@
+{
+  "command": "uv run --locked --offline pytest -q --junitxml=../outputs/task1/validation-v2/pytest.xml",
+  "result": {
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

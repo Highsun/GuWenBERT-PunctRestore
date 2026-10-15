@@ -8,9 +8,11 @@ import tomllib
 
 ROOT = Path(__file__).resolve().parents[3]
 TASK = ROOT / "task1"
-LABELS = ["O", "，", "。", "？", "！", "；", "：", "、"]
+LABELS = ["O", "，", "。", "？", "！", "、", "：", "；"]
 LABEL_TO_ID = {label: index for index, label in enumerate(LABELS)}
 TERMINALS = {LABEL_TO_ID[mark] for mark in "。？！"}
+NATIVE_TAGS = ["O", "B-,", "B-.", "B-?", "B-!", "B-\\", "B-:", "B-;"]
+TAG_TO_ID = {tag: index for index, tag in enumerate(NATIVE_TAGS)}
 
 
 def setup_cache() -> None:

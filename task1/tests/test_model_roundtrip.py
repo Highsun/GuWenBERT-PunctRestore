@@ -2,6 +2,13 @@ import torch
 from transformers import BertConfig, BertForTokenClassification
 
 from guwenbert_task1.common import LABELS
+from guwenbert_task1.runtime import token_limit
+from types import SimpleNamespace
+
+
+def test_roberta_position_offset_is_not_mistaken_for_extra_input_capacity():
+    assert token_limit(SimpleNamespace(model_type="bert", max_position_embeddings=512)) == 512
+    assert token_limit(SimpleNamespace(model_type="roberta", max_position_embeddings=514, pad_token_id=1)) == 512
 
 
 def test_real_token_classifier_backward_and_safetensors_reload(tmp_path):

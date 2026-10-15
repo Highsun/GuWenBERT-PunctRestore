@@ -20,7 +20,8 @@ def scores(confusion: np.ndarray) -> dict:
     micro = _prf(positive_tp, int(confusion[:, 1:].sum()), int(confusion[1:, :].sum()))
     indices = sorted(TERMINALS)
     boundary = _prf(int(confusion[np.ix_(indices, indices)].sum()), int(confusion[:, indices].sum()), int(confusion[indices, :].sum()))
-    return {"characters": int(confusion.sum()), "accuracy_including_O": float(np.trace(confusion) / confusion.sum()) if confusion.sum() else 0.0, "punctuation_micro": micro, "punctuation_macro_f1": float(np.mean([per_class[label]["f1"] for label in LABELS[1:]])), "sentence_boundary": boundary, "per_class": per_class, "confusion_gold_rows_predicted_columns": confusion.tolist()}
+    segmentation = _prf(int(confusion[1:, 1:].sum()), int(confusion[:, 1:].sum()), int(confusion[1:, :].sum()))
+    return {"characters": int(confusion.sum()), "accuracy_including_O": float(np.trace(confusion) / confusion.sum()) if confusion.sum() else 0.0, "punctuation_micro": micro, "punctuation_macro_f1": float(np.mean([per_class[label]["f1"] for label in LABELS[1:]])), "segmentation_any_punctuation": segmentation, "sentence_boundary": boundary, "per_class": per_class, "confusion_gold_rows_predicted_columns": confusion.tolist()}
 
 
 def add_confusion(confusion: np.ndarray, gold, predicted) -> None:
