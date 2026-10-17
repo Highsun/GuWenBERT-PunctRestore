@@ -1,0 +1,79 @@
+{
+  "description": "training sentence-length candidates versus original context budgets; paired development-document bootstrap",
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 43,
+  "contrasts": [
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h14"
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h18"
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h42"
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h49"
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h66"
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h96"
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h14"
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h18"
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h42"
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h49"
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h66"
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h96"
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h14"
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h18"
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h31"
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h42"
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h66"
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h96"
+    }
+  ]
+}

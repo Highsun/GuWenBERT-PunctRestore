@@ -1,0 +1,31 @@
+{
+  "analysis_script": {
+    "path": "task2/analysis/batch_report.py",
+    "sha256": "e1f4079a802f9620738bd2f9da230d258422b6b753dbd44a3203fd6e168a168b"
+  },
+  "input_files_sha256": {
+    "development.json": "e9718d4bfa7f6dd11b9fadea6f9fbc6bde2f2e98f6a30cb1c0f731a8c6dedcec",
+    "test.json": "4187063d58ec523fbfec056564c65e3b23346f978096de942bfd4ba1f9856eaf",
+    "selection.json": "31569cf04737d505b1f03f968f75082ed6294580e7b20302d63224501f65afd8"
+  },
+  "generated_files_sha256": {
+    "figures/01_batch_latency.png": "71b56f9ec6ee781b550dfa8bc29c0b78a282b6c3aec55a9fd86f3e5af3cd61a1",
+    "figures/01_batch_latency.svg": "7f18645a204367880aa3cc7348927144995ed8e041f0b8419a046c970c6e42c0",
+    "figures/01_batch_latency.pdf": "be4083e53a6ee374085313579103a80969389d8aecb524e90ca3e9da60ce95fd",
+    "figures/02_batch_speedup.png": "e2bef16e258a6b90119cfcac3ab8a10418bfe898eed74542b19e6b802b674f92",
+    "figures/02_batch_speedup.svg": "55d225925a33ea1109aa6f91cec8719355130761f9fe8cccd6ff3b913a6d410c",
+    "figures/02_batch_speedup.pdf": "92f5fbeddf20c24e9062adfa3175a25eb552c33a139e51d2cdcd91f28393d3de",
+    "figures/03_batch_resources.png": "6c12837dd3865bdd2e60b8cfc02dac8fddc13a67af988112872691ada4c538eb",
+    "figures/03_batch_resources.svg": "7408a92852d31112f1d1cf24bbeb52b26c0c9164b2c64ce3b19147a250e5804b",
+    "figures/03_batch_resources.pdf": "2d0cd8b1c3650dc7628a030138bb61b2cf3dc94f30727f1c12237c8e9cc963bc",
+    "figures/04_batch_quality_drift.png": "0e70c2696239926a0d8bed31ab5479847c638e57c3a187998b533aca5164ca4e",
+    "figures/04_batch_quality_drift.svg": "304868e98824578cc481af3c9ac65b59a83e972b1e981eca9511e6fac6a65cfe",
+    "figures/04_batch_quality_drift.pdf": "ad939418bc30fdc015ec5afde3f29934cc0fc8ed2e9d65336408e3c8408d6d83",
+    "figures/05_test_quality_latency.png": "069d34267398e1fb77860e0c4d89ae01f1a19971f73e9a82cbded3e20e8ead7c",
+    "figures/05_test_quality_latency.svg": "1114069b58fd5584d0742a5d53d3b38b66ffea26f31616aa3e159113d2964b68",
+    "figures/05_test_quality_latency.pdf": "0ef78aa0afb3e6f8bcef7654bd396217c73f39fbbf0f40f4167979e347acb7bc",
+    "experiment.md": "51839809a61ab4e3a784dff1d64a91dc386a27c9041a7378ee7deb088bf80e26"
+  },
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.4"
+}

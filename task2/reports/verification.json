@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "reference_cases": 4,
+  "task1_source_imported": false,
+  "long_text_characters": 3200,
+  "long_text_windows": 17,
+  "long_text_characters_exactly_once": 3200,
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "torch": "2.9.1+cu128",
+    "transformers": "4.57.6",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "gpu_total_bytes": 12792037376,
+    "precision": "bf16",
+    "threads": 4,
+    "attention": "sdpa",
+    "training_max_length": 256,
+    "inference_max_length": 256
+  },
+  "model_load_seconds": 0.318815755000287
+}

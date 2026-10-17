@@ -1,0 +1,13 @@
+{
+  "command": "uv run --locked --offline pytest -q --junitxml=../outputs/task2/validation-v0.2/pytest.xml",
+  "result": {
+    "tests": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "junit_xml": {
+    "path": "outputs/task2/validation-v0.2/pytest.xml",
+    "sha256": "53a3406f7543b8d231f05565965f4b43b04d1da91fa7e39a2f8aafc44b010a58"
+  }
+}

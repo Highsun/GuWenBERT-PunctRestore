@@ -1,0 +1,753 @@
+{
+  "config": {
+    "experiment": "cclue-task2-v0.1-l256",
+    "model_experiment": "cclue-bert-base-v2",
+    "task1_tag": "task1-v2.0",
+    "dataset_version": "cclue-long-v0.1",
+    "max_length": 256,
+    "core_tokens": 192,
+    "batch_size": 8,
+    "batch_sizes": [
+      1,
+      4,
+      8,
+      16
+    ],
+    "warmup_runs": 1,
+    "repetitions": 3,
+    "boundary_margin": 8,
+    "precision": "bf16",
+    "num_threads": 4
+  },
+  "kind": "fragments",
+  "limit": null,
+  "records": 3992,
+  "strategy": "fixed",
+  "batch_size": 8,
+  "quality": {
+    "overall": {
+      "characters": 417786,
+      "punctuation_micro": {
+        "precision": 0.7220912437440543,
+        "recall": 0.6937872565902768,
+        "f1": 0.7076563460590052,
+        "support": 75490,
+        "predicted": 72531
+      },
+      "punctuation_macro_f1": 0.5532108303753738,
+      "segmentation_any_punctuation": {
+        "precision": 0.8719857716011085,
+        "recall": 0.8378063319644986,
+        "f1": 0.8545544213321082,
+        "support": 75490,
+        "predicted": 72531
+      },
+      "sentence_boundary": {
+        "precision": 0.7540768509840675,
+        "recall": 0.6899922819655261,
+        "f1": 0.7206126013165555,
+        "support": 23322,
+        "predicted": 21340
+      },
+      "per_class": {
+        "O": {
+          "precision": 0.9645363571852689,
+          "recall": 0.9728743543599692,
+          "f1": 0.9686874137336722,
+          "support": 342296,
+          "predicted": 345255
+        },
+        "，": {
+          "precision": 0.728570781016273,
+          "recall": 0.7287855086263574,
+          "f1": 0.7286781290022781,
+          "support": 44109,
+          "predicted": 44122
+        },
+        "。": {
+          "precision": 0.7255570251297182,
+          "recall": 0.6702537593984963,
+          "f1": 0.6968098099565196,
+          "support": 21280,
+          "predicted": 19658
+        },
+        "？": {
+          "precision": 0.6416781292984869,
+          "recall": 0.7149425287356321,
+          "f1": 0.676332004349402,
+          "support": 1305,
+          "predicted": 1454
+        },
+        "！": {
+          "precision": 0.5350877192982456,
+          "recall": 0.1655359565807327,
+          "f1": 0.2528497409326425,
+          "support": 737,
+          "predicted": 228
+        },
+        "、": {
+          "precision": 0.5403792134831461,
+          "recall": 0.5261538461538462,
+          "f1": 0.5331716611813615,
+          "support": 2925,
+          "predicted": 2848
+        },
+        "：": {
+          "precision": 0.8206809583858764,
+          "recall": 0.8430051813471503,
+          "f1": 0.8316932907348242,
+          "support": 3860,
+          "predicted": 3965
+        },
+        "；": {
+          "precision": 0.45703125,
+          "recall": 0.09183673469387756,
+          "f1": 0.15294117647058825,
+          "support": 1274,
+          "predicted": 256
+        }
+      },
+      "accuracy_including_O": 0.9224459412234972,
+      "confusion_gold_rows_predicted_columns": [
+        [
+          333011,
+          6458,
+          1409,
+          77,
+          27,
+          930,
+          377,
+          7
+        ],
+        [
+          8073,
+          32146,
+          3099,
+          118,
+          33,
+          318,
+          283,
+          39
+        ],
+        [
+          2270,
+          4350,
+          14263,
+          181,
+          28,
+          51,
+          45,
+          92
+        ],
+        [
+          134,
+          104,
+          117,
+          933,
+          17,
+          0,
+          0,
+          0
+        ],
+        [
+          91,
+          92,
+          291,
+          140,
+          122,
+          1,
+          0,
+          0
+        ],
+        [
+          1104,
+          241,
+          39,
+          0,
+          0,
+          1539,
+          1,
+          1
+        ],
+        [
+          409,
+          117,
+          77,
+          1,
+          0,
+          2,
+          3254,
+          0
+        ],
+        [
+          163,
+          614,
+          363,
+          4,
+          1,
+          7,
+          5,
+          117
+        ]
+      ]
+    },
+    "window_edges": {
+      "characters": 0,
+      "punctuation_micro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0,
+        "predicted": 0
+      },
+      "punctuation_macro_f1": 0.0,
+      "segmentation_any_punctuation": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0,
+        "predicted": 0
+      },
+      "sentence_boundary": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0,
+        "predicted": 0
+      },
+      "per_class": {
+        "O": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "，": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "。": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "？": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "！": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "、": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "：": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "；": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        }
+      },
+      "accuracy_including_O": 0.0,
+      "confusion_gold_rows_predicted_columns": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "window_interiors": {
+      "characters": 417786,
+      "punctuation_micro": {
+        "precision": 0.7220912437440543,
+        "recall": 0.6937872565902768,
+        "f1": 0.7076563460590052,
+        "support": 75490,
+        "predicted": 72531
+      },
+      "punctuation_macro_f1": 0.5532108303753738,
+      "segmentation_any_punctuation": {
+        "precision": 0.8719857716011085,
+        "recall": 0.8378063319644986,
+        "f1": 0.8545544213321082,
+        "support": 75490,
+        "predicted": 72531
+      },
+      "sentence_boundary": {
+        "precision": 0.7540768509840675,
+        "recall": 0.6899922819655261,
+        "f1": 0.7206126013165555,
+        "support": 23322,
+        "predicted": 21340
+      },
+      "per_class": {
+        "O": {
+          "precision": 0.9645363571852689,
+          "recall": 0.9728743543599692,
+          "f1": 0.9686874137336722,
+          "support": 342296,
+          "predicted": 345255
+        },
+        "，": {
+          "precision": 0.728570781016273,
+          "recall": 0.7287855086263574,
+          "f1": 0.7286781290022781,
+          "support": 44109,
+          "predicted": 44122
+        },
+        "。": {
+          "precision": 0.7255570251297182,
+          "recall": 0.6702537593984963,
+          "f1": 0.6968098099565196,
+          "support": 21280,
+          "predicted": 19658
+        },
+        "？": {
+          "precision": 0.6416781292984869,
+          "recall": 0.7149425287356321,
+          "f1": 0.676332004349402,
+          "support": 1305,
+          "predicted": 1454
+        },
+        "！": {
+          "precision": 0.5350877192982456,
+          "recall": 0.1655359565807327,
+          "f1": 0.2528497409326425,
+          "support": 737,
+          "predicted": 228
+        },
+        "、": {
+          "precision": 0.5403792134831461,
+          "recall": 0.5261538461538462,
+          "f1": 0.5331716611813615,
+          "support": 2925,
+          "predicted": 2848
+        },
+        "：": {
+          "precision": 0.8206809583858764,
+          "recall": 0.8430051813471503,
+          "f1": 0.8316932907348242,
+          "support": 3860,
+          "predicted": 3965
+        },
+        "；": {
+          "precision": 0.45703125,
+          "recall": 0.09183673469387756,
+          "f1": 0.15294117647058825,
+          "support": 1274,
+          "predicted": 256
+        }
+      },
+      "accuracy_including_O": 0.9224459412234972,
+      "confusion_gold_rows_predicted_columns": [
+        [
+          333011,
+          6458,
+          1409,
+          77,
+          27,
+          930,
+          377,
+          7
+        ],
+        [
+          8073,
+          32146,
+          3099,
+          118,
+          33,
+          318,
+          283,
+          39
+        ],
+        [
+          2270,
+          4350,
+          14263,
+          181,
+          28,
+          51,
+          45,
+          92
+        ],
+        [
+          134,
+          104,
+          117,
+          933,
+          17,
+          0,
+          0,
+          0
+        ],
+        [
+          91,
+          92,
+          291,
+          140,
+          122,
+          1,
+          0,
+          0
+        ],
+        [
+          1104,
+          241,
+          39,
+          0,
+          0,
+          1539,
+          1,
+          1
+        ],
+        [
+          409,
+          117,
+          77,
+          1,
+          0,
+          2,
+          3254,
+          0
+        ],
+        [
+          163,
+          614,
+          363,
+          4,
+          1,
+          7,
+          5,
+          117
+        ]
+      ]
+    },
+    "reconstruction_joins": {
+      "characters": 0,
+      "punctuation_micro": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0,
+        "predicted": 0
+      },
+      "punctuation_macro_f1": 0.0,
+      "segmentation_any_punctuation": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0,
+        "predicted": 0
+      },
+      "sentence_boundary": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0,
+        "predicted": 0
+      },
+      "per_class": {
+        "O": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "，": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "。": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "？": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "！": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "、": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "：": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        },
+        "；": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0,
+          "predicted": 0
+        }
+      },
+      "accuracy_including_O": 0.0,
+      "confusion_gold_rows_predicted_columns": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "exact_records": 373,
+    "boundary_margin_characters": 8
+  },
+  "task1_short_fragment_comparison": {
+    "task1_different_characters": 26,
+    "task1_micro_f1": 0.7076284926768632
+  },
+  "seconds": 5.417786298000465,
+  "profile": {
+    "gpu_forward_argmax_seconds": 5.066821966648102,
+    "peak_allocated_bytes": 672610816,
+    "peak_reserved_bytes": 694157312,
+    "padded_tokens": 440320,
+    "input_tokens_including_special": 425770
+  },
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "torch": "2.9.1+cu128",
+    "transformers": "4.57.6",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "gpu_total_bytes": 12792037376,
+    "precision": "bf16",
+    "threads": 4,
+    "attention": "sdpa",
+    "training_max_length": 256,
+    "inference_max_length": 256
+  },
+  "dataset": {
+    "dataset_version": "cclue-long-v0.1",
+    "construction": "concatenate official test fragments within anonymous DOCSTART groups; preserve every character and supplied label; no inserted separators",
+    "source_path": "data/splits/task1/cclue-punc-v2/test.jsonl",
+    "source_sha256": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec",
+    "records": 180,
+    "source_fragments": 3992,
+    "characters": 417786,
+    "min_characters": 13,
+    "max_characters": 71551,
+    "longer_than_512_characters": 99,
+    "reconstruction_joins": 3812,
+    "files": {
+      "documents.jsonl": "9ac9eb9ce5180fd1d6fe8319b2e75a3c8602fc36d8cd08ba187671b563f61900",
+      "fragments.jsonl": "f5ffaed0715187a28fc724894e8ccd1a86c9d428be6745a81ae5bbaebe3a06ec"
+    }
+  },
+  "source_files_sha256": {
+    "task2/configs/initial.toml": "581dbd09704cf9ff1553593a1d6c02f6271328ecc4848084fb35428cf534519a",
+    "task2/configs/window400.toml": "bed87e4d4549508cc5ccc78a32de975c645357af9ca96eaf33e6b67de13b9ced",
+    "task2/pyproject.toml": "e07032e7f726a41e2ae61e80e514d088b8b760b2b86ac0e6544952dfff355b57",
+    "task2/scripts/run.py": "453c7af95cd094c7e5f29f0ea52db4ac0d429fe75303f0aed8cbebb12e4c8c0e",
+    "task2/src/guwenbert_task2/__init__.py": "00846132324bf6632fa7e58e1dc861e7c7a80fc4267c83875b78ebd4ce237d05",
+    "task2/src/guwenbert_task2/cli.py": "80180d088b6996b08dc2246ee5dad21694e3d70d7004d864d3c6f4fb4e29de2a",
+    "task2/src/guwenbert_task2/common.py": "2cbe683986cac7d47d984b71ad54bb4fdd17238265d4f380d22abd0f529dc0e1",
+    "task2/src/guwenbert_task2/data.py": "8bf88649dfc27f6d46ddb902205a6fce87ef9473d900ab5013bd1410865b129a",
+    "task2/src/guwenbert_task2/engine.py": "f19b0d2eb1dbe5795bb3654d521aa7d8a006478b5ce56ba5d5bae794573c5b1f",
+    "task2/src/guwenbert_task2/metrics.py": "0b82409c8fcd4e9a822d3d61719b3d36058c568649ad1d2ea4a8346a87ccca07",
+    "task2/src/guwenbert_task2/runtime.py": "3670c4e7b234c3f06d962fa7d2ba35db72da95cf59cfecc28b84715636c13d66",
+    "task2/src/guwenbert_task2/windows.py": "314d539ffbb0de27fd498e2776bd312e925b55f15237e56d2494cef7380aa125",
+    "task2/uv.lock": "1edd97964792da5ea93b01123735e866acc20c624694220d8d29e35c79b21156"
+  }
+}

@@ -1,0 +1,51 @@
+experiment = "cclue-batch-scaling-v0.3"
+model_experiment = "cclue-bert-base-v2"
+task1_tag = "task1-v2.0"
+dataset_version = "cclue-dev-long-v0.2"
+test_dataset_version = "cclue-long-v0.1"
+accepted_checkpoint = "task2/reports/checkpoints/context-v0.2-accepted.json"
+max_length = 400
+core_tokens = 300
+batch_size = 16
+batch_sizes = [1, 4, 8, 16, 32, 64]
+warmup_runs = 1
+repetitions = 5
+boundary_margin = 8
+precision = "bf16"
+num_threads = 4
+seed = 20261017
+bootstrap_samples = 2000
+near_fastest_ratio = 1.03
+quality_drift_limit_pp = 0.02
+
+[[windows]]
+id = "original256"
+label = "Original W256/C192/H31"
+max_length = 256
+core_tokens = 192
+anchored = false
+adaptive_reference = "serial256-b1"
+
+[[windows]]
+id = "median222"
+label = "Median W222/C192/H14"
+max_length = 222
+core_tokens = 192
+anchored = true
+adaptive_reference = "serial256-b1"
+
+[[windows]]
+id = "quality256"
+label = "Quality W256/C156/H49"
+max_length = 256
+core_tokens = 156
+anchored = false
+adaptive_reference = "serial256-b1"
+
+[[windows]]
+id = "teacher400"
+label = "Teacher W400/C300/H49"
+max_length = 400
+core_tokens = 300
+anchored = false
+adaptive_reference = "serial400-b1"

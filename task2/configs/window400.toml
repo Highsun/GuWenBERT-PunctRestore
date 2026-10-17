@@ -1,0 +1,13 @@
+experiment = "cclue-task2-v0.1-l400"
+model_experiment = "cclue-bert-base-v2"
+task1_tag = "task1-v2.0"
+dataset_version = "cclue-long-v0.1"
+max_length = 400
+core_tokens = 300
+batch_size = 8
+batch_sizes = [1, 4, 8, 16]
+warmup_runs = 1
+repetitions = 3
+boundary_margin = 8
+precision = "bf16"
+num_threads = 4

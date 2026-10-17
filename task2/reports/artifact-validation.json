@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "task1_protected_files": 87,
+  "task1_unchanged": true,
+  "source_fragments_verified": 3992,
+  "documents": 180,
+  "characters": 417786,
+  "fixed_windows_identical_across_batches": true,
+  "variants": [
+    {
+      "experiment": "cclue-task2-v0.1-l256",
+      "variant": "adaptive-b1",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6863274056658263
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l256",
+      "variant": "fixed-b1",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6844195567908552
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l256",
+      "variant": "fixed-b4",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6847590632280214
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l256",
+      "variant": "fixed-b8",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6847590632280214
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l256",
+      "variant": "fixed-b16",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6847590632280214
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l400",
+      "variant": "adaptive-b1",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6802571442234777
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l400",
+      "variant": "fixed-b1",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6763314784013361
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l400",
+      "variant": "fixed-b4",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6763040993312662
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l400",
+      "variant": "fixed-b8",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6763040993312662
+    },
+    {
+      "experiment": "cclue-task2-v0.1-l400",
+      "variant": "fixed-b16",
+      "characters_exactly_once": 417786,
+      "recomputed_micro_f1": 0.6763040993312662
+    }
+  ],
+  "artifact_sha256": {
+    "outputs/task2/cclue-task2-v0.1-l256/adaptive-b1/predictions.jsonl": "792e7bdfbdfa2624b89a33a78dbcf2b70f7669c3dcc7eb7298110136e765d5a5",
+    "outputs/task2/cclue-task2-v0.1-l256/adaptive-b1/windows.jsonl": "f3f7a6389bac865697133a5d77616d12b90ff8048238fa6893d1283ffd196188",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b1/predictions.jsonl": "45ba33f9f2d53bcb5a2c229863aeb44a9968aec4d00daac7193ef9b375669dd5",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b1/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b4/predictions.jsonl": "94445b71be73b9f2a27aa56bdff82d97b794d30dc1c0ee1560c6d32351d585b4",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b4/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b8/predictions.jsonl": "94445b71be73b9f2a27aa56bdff82d97b794d30dc1c0ee1560c6d32351d585b4",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b8/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b16/predictions.jsonl": "94445b71be73b9f2a27aa56bdff82d97b794d30dc1c0ee1560c6d32351d585b4",
+    "outputs/task2/cclue-task2-v0.1-l256/fixed-b16/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-task2-v0.1-l400/adaptive-b1/predictions.jsonl": "2d1195b3d88bf39ef7a059e4c3c92e5bdd532d605db00ce13cb3f42d8c95c0d9",
+    "outputs/task2/cclue-task2-v0.1-l400/adaptive-b1/windows.jsonl": "ccd7801e727086764e5b0f77109ab1bbec0d871a2ca6e86618cbcdca860adb42",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b1/predictions.jsonl": "af65eb75fa34725397c116f189404c6ab0357bc2ae8383473a94275a98fd5b0e",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b1/windows.jsonl": "0b6c87bf2780af330701144278229ebdbef3b76865e9ea4029f82b480e41108b",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b4/predictions.jsonl": "6c7834d99b9e1f5aca098c8cde6b2402a5134536ed0df9d50ede762ffacaa7be",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b4/windows.jsonl": "0b6c87bf2780af330701144278229ebdbef3b76865e9ea4029f82b480e41108b",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b8/predictions.jsonl": "6c7834d99b9e1f5aca098c8cde6b2402a5134536ed0df9d50ede762ffacaa7be",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b8/windows.jsonl": "0b6c87bf2780af330701144278229ebdbef3b76865e9ea4029f82b480e41108b",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b16/predictions.jsonl": "6c7834d99b9e1f5aca098c8cde6b2402a5134536ed0df9d50ede762ffacaa7be",
+    "outputs/task2/cclue-task2-v0.1-l400/fixed-b16/windows.jsonl": "0b6c87bf2780af330701144278229ebdbef3b76865e9ea4029f82b480e41108b"
+  },
+  "unit_tests": {
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

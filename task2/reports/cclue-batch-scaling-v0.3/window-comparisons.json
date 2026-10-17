@@ -1,0 +1,51 @@
+{
+  "split": "test",
+  "unit": "anonymous document group",
+  "samples": 2000,
+  "seed": 20261019,
+  "paired": true,
+  "multiple_comparison_adjustment": false,
+  "used_for_parameter_selection": false,
+  "contrasts": [
+    {
+      "reference": "original256-b16",
+      "candidate": "median222-b32",
+      "delta_micro_f1_pp": 0.03275649674341352,
+      "paired_95ci_pp": [
+        -0.12478482571706306,
+        0.16269297258973286
+      ],
+      "latency_ratio_candidate_over_reference": 0.9122631510489592
+    },
+    {
+      "reference": "original256-b16",
+      "candidate": "quality256-b16",
+      "delta_micro_f1_pp": 0.016927389375787083,
+      "paired_95ci_pp": [
+        -0.2016304428529342,
+        0.18781437499029105
+      ],
+      "latency_ratio_candidate_over_reference": 1.208567607329236
+    },
+    {
+      "reference": "original256-b16",
+      "candidate": "teacher400-b16",
+      "delta_micro_f1_pp": -0.8454963896755152,
+      "paired_95ci_pp": [
+        -1.0356107567783537,
+        -0.6579817039147169
+      ],
+      "latency_ratio_candidate_over_reference": 1.0729074905447207
+    },
+    {
+      "reference": "quality256-b16",
+      "candidate": "median222-b32",
+      "delta_micro_f1_pp": 0.015829107367626438,
+      "paired_95ci_pp": [
+        -0.18349033454914176,
+        0.21132391022905028
+      ],
+      "latency_ratio_candidate_over_reference": 0.7548300529623926
+    }
+  ]
+}

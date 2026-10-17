@@ -1,0 +1,187 @@
+{
+  "bootstrap_samples": 2000,
+  "unit": "development anonymous document",
+  "paired": true,
+  "contrasts": [
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h14",
+      "delta_micro_f1_pp": 0.0925330102027333,
+      "paired_bootstrap_95ci_pp": [
+        -0.15135245245286422,
+        0.2731334839336911
+      ],
+      "candidate_time_divided_by_reference": 0.9094992872568209
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h18",
+      "delta_micro_f1_pp": 0.06779398284576521,
+      "paired_bootstrap_95ci_pp": [
+        -0.1555228002057557,
+        0.2598484580496565
+      ],
+      "candidate_time_divided_by_reference": 0.8956205326482474
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h42",
+      "delta_micro_f1_pp": 0.039427805514613556,
+      "paired_bootstrap_95ci_pp": [
+        -0.18737390427390782,
+        0.22608464086617563
+      ],
+      "candidate_time_divided_by_reference": 1.219191573659484
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h49",
+      "delta_micro_f1_pp": 0.023037983019569275,
+      "paired_bootstrap_95ci_pp": [
+        -0.19308504072167582,
+        0.2095455380824001
+      ],
+      "candidate_time_divided_by_reference": 1.250635187857776
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h66",
+      "delta_micro_f1_pp": 0.05282847045769978,
+      "paired_bootstrap_95ci_pp": [
+        -0.14052330732028356,
+        0.24233337161336257
+      ],
+      "candidate_time_divided_by_reference": 1.4347067766600399
+    },
+    {
+      "reference": "c192-h31",
+      "candidate": "c192-h96",
+      "delta_micro_f1_pp": -0.45539007374202356,
+      "paired_bootstrap_95ci_pp": [
+        -0.6553026720148264,
+        -0.24047682042715193
+      ],
+      "candidate_time_divided_by_reference": 1.6795141800042421
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h14",
+      "delta_micro_f1_pp": -0.049576078295787696,
+      "paired_bootstrap_95ci_pp": [
+        -0.3018819526442501,
+        0.16984820061196415
+      ],
+      "candidate_time_divided_by_reference": 0.8570662043120089
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h18",
+      "delta_micro_f1_pp": 0.03817552950190484,
+      "paired_bootstrap_95ci_pp": [
+        -0.26489397099175443,
+        0.26617984202087036
+      ],
+      "candidate_time_divided_by_reference": 0.8845637038295807
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h42",
+      "delta_micro_f1_pp": 0.162261236780048,
+      "paired_bootstrap_95ci_pp": [
+        -0.08365582926555565,
+        0.35765023642522403
+      ],
+      "candidate_time_divided_by_reference": 1.1146349535594606
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h49",
+      "delta_micro_f1_pp": 0.30530985762137197,
+      "paired_bootstrap_95ci_pp": [
+        0.10969823053500222,
+        0.4958912100876538
+      ],
+      "candidate_time_divided_by_reference": 1.2077456570950371
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h66",
+      "delta_micro_f1_pp": 0.24610227738401935,
+      "paired_bootstrap_95ci_pp": [
+        0.028511806403667683,
+        0.4069713285720408
+      ],
+      "candidate_time_divided_by_reference": 1.5019547664651847
+    },
+    {
+      "reference": "w256-h31",
+      "candidate": "w256-h96",
+      "delta_micro_f1_pp": 0.2189662253233693,
+      "paired_bootstrap_95ci_pp": [
+        0.013239369633962219,
+        0.3940401112572427
+      ],
+      "candidate_time_divided_by_reference": 2.8968746460841843
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h14",
+      "delta_micro_f1_pp": -0.28343319581749515,
+      "paired_bootstrap_95ci_pp": [
+        -0.49213678336684746,
+        -0.027612964201501684
+      ],
+      "candidate_time_divided_by_reference": 0.84335799835785
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h18",
+      "delta_micro_f1_pp": -0.23289025607592384,
+      "paired_bootstrap_95ci_pp": [
+        -0.4119410496275159,
+        -0.017321020316002644
+      ],
+      "candidate_time_divided_by_reference": 0.7842253525657579
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h31",
+      "delta_micro_f1_pp": -0.006785859293145791,
+      "paired_bootstrap_95ci_pp": [
+        -0.17751664707950449,
+        0.15813765320511927
+      ],
+      "candidate_time_divided_by_reference": 0.9054941814392584
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h42",
+      "delta_micro_f1_pp": -0.06939668636445351,
+      "paired_bootstrap_95ci_pp": [
+        -0.21703895871576115,
+        0.07436257452292205
+      ],
+      "candidate_time_divided_by_reference": 0.8657747085963158
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h66",
+      "delta_micro_f1_pp": -0.14325424977301715,
+      "paired_bootstrap_95ci_pp": [
+        -0.3871976739162894,
+        0.09600837586365918
+      ],
+      "candidate_time_divided_by_reference": 1.1152230746675373
+    },
+    {
+      "reference": "w400-h49",
+      "candidate": "w400-h96",
+      "delta_micro_f1_pp": -0.28718277664320224,
+      "paired_bootstrap_95ci_pp": [
+        -0.5387600891519057,
+        -0.018687981303723192
+      ],
+      "candidate_time_divided_by_reference": 1.3984642608653155
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "formats": [
+    "png (300 dpi)",
+    "SVG",
+    "PDF"
+  ],
+  "files_sha256": {
+    "01_sentence_lengths.png": "34b715fb9e086497158882d047fe00eb73a3e9c3d363d6502aaead3feb91e003",
+    "01_sentence_lengths.svg": "78eeb1603414190f99b9861b93e7a65435507caacee881553d348758ed33da09",
+    "01_sentence_lengths.pdf": "01f7122c27e619e495b7409f2b8aa60d080b77ddd3362c94d9ed62f05aff2382",
+    "02_quality_vs_context.png": "0e760211bd0aa17315b1be3cdaf53d60601d67c20be691aeba1b9bcf9e964fdb",
+    "02_quality_vs_context.svg": "4294c9c2fe9cb116b0143a2ae4afb2cda493cada815beeb4677a78af45ac5284",
+    "02_quality_vs_context.pdf": "1924652a50657fa0950c6c80dcd4ced143f8eda1e42f306ad2c5dc2f0aa9fd3d",
+    "03_quality_throughput.png": "a4d0ff7ee237b31968d8234ca74e913e1f04caf6b400c55c21873482368f2985",
+    "03_quality_throughput.svg": "622d789078ab2b4179b9b7077aafbbf22bf7d3bacbca903a21b6d05a2059255e",
+    "03_quality_throughput.pdf": "1ff078f168d0584654f39615a9cdddde7ee1e0c62fa4f5a99e6cde2117a56790",
+    "04_boundary_effect.png": "0850b370e7678b5c18c33f45bcde43cdf86f434accb645fc8decfa50121360cc",
+    "04_boundary_effect.svg": "16f01d78e2f7c57d905cd4a5115153e113a141f4663485bb52ed40aa267b5526",
+    "04_boundary_effect.pdf": "8e8419f4002cdf16d15f4e7332b534f12687dbcee0c6fe4f9ac117b0eb37a6f7",
+    "05_resource_cost.png": "870eedbc7cf1196c304aa65adffea192fb586e5148145b10afcbfce7c9bfc628",
+    "05_resource_cost.svg": "1948f5e3160d8a8457ef08be0952c79d87381b5873141ba2ec98bb6233e735f7",
+    "05_resource_cost.pdf": "ff6774b585bbaf7b20e8226591599ce2067df698138d742cffe7c06f1338b473"
+  }
+}

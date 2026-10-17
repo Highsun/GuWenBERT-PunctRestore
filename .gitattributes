@@ -5,3 +5,12 @@
 *.lock text eol=lf
 *.sh text eol=lf
 LICENSE text eol=lf
+
+# Preserve experiment artifacts byte-for-byte for recorded SHA-256 checks.
+task2/reports/** -text
+
+# CSV output uses standard CRLF records; keep their recorded bytes.
+task2/reports/**/*.csv whitespace=cr-at-eol
+
+# Matplotlib SVG path formatting contains intentional trailing spaces.
+task2/reports/**/figures/*.svg -whitespace
