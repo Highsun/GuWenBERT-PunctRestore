@@ -1,0 +1,38 @@
+experiment = "cclue-window-fusion-v0.4-optimized"
+pilot_experiment = "cclue-window-fusion-v0.4"
+unit_tests_record = "reports/unit-tests-v0.4-optimized.json"
+model_experiment = "cclue-bert-base-v2"
+task1_tag = "task1-v2.0"
+dataset_version = "cclue-dev-long-v0.2"
+test_dataset_version = "cclue-long-v0.1"
+accepted_checkpoints = ["task2/reports/checkpoints/context-v0.2-accepted.json", "task2/reports/checkpoints/batch-v0.3-accepted.json"]
+max_length = 256
+core_tokens = 192
+batch_size = 16
+batch_sizes = [16, 32]
+warmup_runs = 1
+repetitions = 5
+boundary_margin = 8
+precision = "bf16"
+num_threads = 4
+seed = 20261018
+bootstrap_samples = 2000
+weighted_powers = [1, 2]
+selection_quality_tolerance_pp = 0.02
+practical_slowdown_limit = 1.15
+
+[[windows]]
+id = "median222"
+label = "W222/C192/H14, B32"
+max_length = 222
+core_tokens = 192
+batch_size = 32
+anchored = true
+
+[[windows]]
+id = "original256"
+label = "W256/C192/H31, B16"
+max_length = 256
+core_tokens = 192
+batch_size = 16
+anchored = false

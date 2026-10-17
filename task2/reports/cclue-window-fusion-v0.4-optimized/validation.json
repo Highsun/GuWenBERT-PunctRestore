@@ -1,0 +1,187 @@
+{
+  "passed": true,
+  "phases": {
+    "development": {
+      "conditions": 11,
+      "measured_runs": 55,
+      "documents": 185,
+      "characters": 341563,
+      "probability_cache_replay_exact": true,
+      "coverage_weight_sums_verified": true,
+      "window_positions_identical": true,
+      "core_control_identical": true,
+      "previous_core_predictions_identical": true,
+      "independent_confusion_recomputation": true,
+      "bootstrap_recomputed": true
+    },
+    "test": {
+      "conditions": 9,
+      "measured_runs": 45,
+      "documents": 180,
+      "characters": 417786,
+      "probability_cache_replay_exact": true,
+      "coverage_weight_sums_verified": true,
+      "window_positions_identical": true,
+      "core_control_identical": true,
+      "previous_core_predictions_identical": true,
+      "independent_confusion_recomputation": true,
+      "bootstrap_recomputed": true
+    }
+  },
+  "task1_unchanged": true,
+  "task1_files_checked": 87,
+  "previous_experiments_unchanged": true,
+  "unit_tests_passed": 46,
+  "figure_files_checked": 18,
+  "pilot_predictions_and_probabilities_identical": true,
+  "changes": {
+    "development/median222-prob-core": {
+      "different_characters_vs_core": 0,
+      "corrected_characters": 0,
+      "newly_incorrect_characters": 0,
+      "all_changes_in_overlap": true
+    },
+    "development/median222-uniform": {
+      "different_characters_vs_core": 2116,
+      "corrected_characters": 671,
+      "newly_incorrect_characters": 1059,
+      "all_changes_in_overlap": true
+    },
+    "development/median222-weighted1": {
+      "different_characters_vs_core": 573,
+      "corrected_characters": 279,
+      "newly_incorrect_characters": 197,
+      "all_changes_in_overlap": true
+    },
+    "development/median222-weighted2": {
+      "different_characters_vs_core": 348,
+      "corrected_characters": 171,
+      "newly_incorrect_characters": 125,
+      "all_changes_in_overlap": true
+    },
+    "development/original256-prob-core": {
+      "different_characters_vs_core": 0,
+      "corrected_characters": 0,
+      "newly_incorrect_characters": 0,
+      "all_changes_in_overlap": true
+    },
+    "development/original256-uniform": {
+      "different_characters_vs_core": 3171,
+      "corrected_characters": 1191,
+      "newly_incorrect_characters": 1462,
+      "all_changes_in_overlap": true
+    },
+    "development/original256-weighted1": {
+      "different_characters_vs_core": 1055,
+      "corrected_characters": 534,
+      "newly_incorrect_characters": 364,
+      "all_changes_in_overlap": true
+    },
+    "development/original256-weighted2": {
+      "different_characters_vs_core": 632,
+      "corrected_characters": 330,
+      "newly_incorrect_characters": 216,
+      "all_changes_in_overlap": true
+    },
+    "test/median222-prob-core": {
+      "different_characters_vs_core": 0,
+      "corrected_characters": 0,
+      "newly_incorrect_characters": 0,
+      "all_changes_in_overlap": true
+    },
+    "test/median222-uniform": {
+      "different_characters_vs_core": 2535,
+      "corrected_characters": 750,
+      "newly_incorrect_characters": 1369,
+      "all_changes_in_overlap": true
+    },
+    "test/median222-weighted1": {
+      "different_characters_vs_core": 698,
+      "corrected_characters": 336,
+      "newly_incorrect_characters": 268,
+      "all_changes_in_overlap": true
+    },
+    "test/original256-prob-core": {
+      "different_characters_vs_core": 0,
+      "corrected_characters": 0,
+      "newly_incorrect_characters": 0,
+      "all_changes_in_overlap": true
+    },
+    "test/original256-uniform": {
+      "different_characters_vs_core": 3968,
+      "corrected_characters": 1469,
+      "newly_incorrect_characters": 1926,
+      "all_changes_in_overlap": true
+    },
+    "test/original256-weighted1": {
+      "different_characters_vs_core": 1259,
+      "corrected_characters": 675,
+      "newly_incorrect_characters": 435,
+      "all_changes_in_overlap": true
+    }
+  },
+  "artifact_sha256": {
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-core/windows.jsonl": "f7db3705dbe541122559c10aecfd28193e71f54335aa7cdb74959a9ead934eb9",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-core/predictions.jsonl": "6730ef140fad542c83305953fc6b06d3738050473f86e67080120915ca037e6f",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-prob-core/windows.jsonl": "f7db3705dbe541122559c10aecfd28193e71f54335aa7cdb74959a9ead934eb9",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-prob-core/probabilities.npz": "064816d0d1a1135e75dfc54c59a125a721fe0767113334a64f6f97a11b3fa84f",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-prob-core/predictions.jsonl": "6730ef140fad542c83305953fc6b06d3738050473f86e67080120915ca037e6f",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-prob-core/aggregation.npz": "17c0fc80a73e8dcbad7bd7ee7b3486973ae9d3d0028bd2843a95a53f30f9ced5",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-uniform/windows.jsonl": "f7db3705dbe541122559c10aecfd28193e71f54335aa7cdb74959a9ead934eb9",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-uniform/predictions.jsonl": "c24f40f99f05c118c79e35a46186db3f14ff048b86a5ddf3a1fa4995cf8fdc4f",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-uniform/aggregation.npz": "657bfd661263dcf51fe0375880c42a3e758fd825657a0939b0debea7266e2275",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-weighted1/windows.jsonl": "f7db3705dbe541122559c10aecfd28193e71f54335aa7cdb74959a9ead934eb9",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-weighted1/predictions.jsonl": "946ef40b23abfd7b2ada266a5b0d80ec3224a08b169b9f535c44327de87310f8",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-weighted1/aggregation.npz": "ba6697d22667176dacc8b7e4646c6cf6e8a1e4a3134d2ada661363fd86539ba4",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-weighted2/windows.jsonl": "f7db3705dbe541122559c10aecfd28193e71f54335aa7cdb74959a9ead934eb9",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-weighted2/predictions.jsonl": "1ca1da25d8f46f112973ecf15b9bf2737d105bd418714be32a6550ed9382a5db",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/median222-weighted2/aggregation.npz": "ec6d85f31235234ecb6ef8c904e0a8ac3d9f4d0ce3c5b31b198ecb3ee33bdbe0",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-core/windows.jsonl": "e84f8038b73f86d2b683fe186c4205e6dbe3402c0b99fc7e4961610f7655c1ab",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-core/predictions.jsonl": "47c5a5b17aeb18619efad184948c66964012b0ab036b5432490083c87ea1fd4d",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-prob-core/windows.jsonl": "e84f8038b73f86d2b683fe186c4205e6dbe3402c0b99fc7e4961610f7655c1ab",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-prob-core/probabilities.npz": "ffc52518621cbce9c4c64276f5b49df798678d23377119c9dc959b360f6e970d",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-prob-core/predictions.jsonl": "47c5a5b17aeb18619efad184948c66964012b0ab036b5432490083c87ea1fd4d",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-prob-core/aggregation.npz": "17c0fc80a73e8dcbad7bd7ee7b3486973ae9d3d0028bd2843a95a53f30f9ced5",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-uniform/windows.jsonl": "e84f8038b73f86d2b683fe186c4205e6dbe3402c0b99fc7e4961610f7655c1ab",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-uniform/predictions.jsonl": "f148fe326b6053a63e8df74517f59f564551b4483be41b1d1055b97c19f0844a",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-uniform/aggregation.npz": "3d00a5d86f75fa988eeef857de64b2a112b54d5055b32aba396b0a1bc74c84d5",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-weighted1/windows.jsonl": "e84f8038b73f86d2b683fe186c4205e6dbe3402c0b99fc7e4961610f7655c1ab",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-weighted1/predictions.jsonl": "a025bc88328d7546bb0b1dde156c92cd0ea754626b6ffbb93250e3a00a3ac0c1",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-weighted1/aggregation.npz": "7b1689ffcb9dc4be7a6ae1e133eab9a9b1412664b58fe7330a3b5cbeacf466a3",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-weighted2/windows.jsonl": "e84f8038b73f86d2b683fe186c4205e6dbe3402c0b99fc7e4961610f7655c1ab",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-weighted2/predictions.jsonl": "05c36fdb609ea9acca3171ff4ba0abe15a15d4d9a8ff0ab6fe2c247fc8fdaf5d",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/original256-weighted2/aggregation.npz": "9fbca8b2adee40d8b3abd8d662909de4f88f1bfcbdd7346eb99f50783817fecb",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/serial256/windows.jsonl": "d911214f06f482bdb760d4727b51562f673d7cc45660bfa6319f643b50c9d96e",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/development/serial256/predictions.jsonl": "9a0ba64156f61688f9b6c54878527b2167b56089ffe51064b91632ee23ac305c",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-core/windows.jsonl": "d29d3294e4ea142233fe8245cb6e23e681edd9c4609cb2a6325912b2f4fafdb6",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-core/predictions.jsonl": "a38d0789702579d891884a70ce5d6889f0a4c2c54e828255ad973fce3dfd4845",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-prob-core/windows.jsonl": "d29d3294e4ea142233fe8245cb6e23e681edd9c4609cb2a6325912b2f4fafdb6",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-prob-core/probabilities.npz": "b631b7ae8ff5cf2a32ae1c9bfc148b55fdcc9ed0bbe17fc37ec6ac5d0065fddf",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-prob-core/predictions.jsonl": "a38d0789702579d891884a70ce5d6889f0a4c2c54e828255ad973fce3dfd4845",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-prob-core/aggregation.npz": "1583a8a5661bdc40551ef62011bbc8c66f569ef0d3d0c6d63e306e2538342457",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-uniform/windows.jsonl": "d29d3294e4ea142233fe8245cb6e23e681edd9c4609cb2a6325912b2f4fafdb6",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-uniform/predictions.jsonl": "2d3fed9c53f6bfbe271967442a1d5512435d5916ce5b9945fcc9c735c6f3a663",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-uniform/aggregation.npz": "3a60cb747e43ba9b9b85c0dfc6cc93b049785d72d7d009a0479080443b553c1a",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-weighted1/windows.jsonl": "d29d3294e4ea142233fe8245cb6e23e681edd9c4609cb2a6325912b2f4fafdb6",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-weighted1/predictions.jsonl": "e76ecf55abbadcc491ece2d136d8b90a1210e4a5c8cbde6003791d5fb5e27947",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/median222-weighted1/aggregation.npz": "cade9567c3af9fe9cca9e96880e0ea3249b95f2b5e496bd9bc9b9c3c9c7a86f3",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-core/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-core/predictions.jsonl": "94445b71be73b9f2a27aa56bdff82d97b794d30dc1c0ee1560c6d32351d585b4",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-prob-core/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-prob-core/probabilities.npz": "d174d1b74447d166fbd1b75d28e25e6b4398e15120ddc0d86816c1d33c418f69",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-prob-core/predictions.jsonl": "94445b71be73b9f2a27aa56bdff82d97b794d30dc1c0ee1560c6d32351d585b4",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-prob-core/aggregation.npz": "1583a8a5661bdc40551ef62011bbc8c66f569ef0d3d0c6d63e306e2538342457",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-uniform/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-uniform/predictions.jsonl": "598a2afdef38b0d235b2fab5d69dac7ed182c8cbf9aa9b7da14aa3d541f3db78",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-uniform/aggregation.npz": "2b2547ad5867298003d4bee2597004582fabd5eb71bcda37185c83a036dde04e",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-weighted1/windows.jsonl": "4642ed9b279deecde612acba59c9e31753497195e482da3e19b4c17640b92d4c",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-weighted1/predictions.jsonl": "23dc59ef21849b9444139941fef0fc9bdeb81cc5d10036e125b00a5a5704320f",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/original256-weighted1/aggregation.npz": "07f4fb8cf98a87039ee4483ee322baa35924b01f729e59fd7966136e52441bb2",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/serial256/windows.jsonl": "f3f7a6389bac865697133a5d77616d12b90ff8048238fa6893d1283ffd196188",
+    "outputs/task2/cclue-window-fusion-v0.4-optimized/test/serial256/predictions.jsonl": "792e7bdfbdfa2624b89a33a78dbcf2b70f7669c3dcc7eb7298110136e765d5a5"
+  },
+  "audit_script": {
+    "path": "task2/analysis/audit_fusion_study.py",
+    "sha256": "b769884ad493e543826b0ee4b2f2a655a13036484df067f0c43da0107396aa6f"
+  }
+}

@@ -6,9 +6,13 @@
 
 任务二后续已完成句长指导的上下文预算实验和 batch 扩展、测试集验证，见 [实验记录](task2/reports/experiment-register.md)。当前句长中位数方案在重建测试长文上的标点 micro-F1 为 68.509%，相对对应串行参考加速 10.88 倍；质量差值为 −0.124 个百分点，配对区间包含零。任务二长文推理结果与下表任务一原始测试片段结果分别评价。
 
-本轮扩充工作归纳于[任务二阶段总结](task2/reports/stage-summary.md)，下一阶段[跨窗口概率融合计划](task2/docs/next-stage-plan.md)待实施。
+前三阶段扩充工作归纳于[任务二阶段总结](task2/reports/stage-summary.md)。[跨窗口概率融合](task2/reports/cclue-window-fusion-v0.4-optimized/experiment.md)现已完成：256-token 方案的线性中心加权使长文测试 micro-F1 达到 68.652%，相对同窗核心输出提高 0.176 个百分点，耗时增加约 5.1%，相对串行加速 9.10 倍；等权融合降低总体质量。详细解释见[结果分析](task2/reports/cclue-window-fusion-v0.4-optimized/conclusions.md)。
 
-同一 CCLUE 测试集上的结果：
+[选择性局部复核](task2/reports/cclue-selective-review-v0.5/experiment.md)已完成 95 次正式测量及独立核验。开发集锁定的分歧筛选方案在测试集上的 micro-F1 为 68.650%，相对线性融合基线 68.652% 未确认质量收益，耗时增加 10.16%；继续保留单遍线性融合作为已验证方案。详细诊断见[复核结果分析](task2/reports/cclue-selective-review-v0.5/conclusions.md)。
+
+v0.4～v0.5 的工作归纳见[阶段总结](task2/reports/stage-summary-v0.5.md)；各方法的研究动机、关键选择、实验依据及后续方向见[研究路线与方法演进](task2/docs/research-evolution.md)。
+
+同一 CCLUE 测试集上的任务一结果：
 
 | 实验 | 标点 micro-F1 | 标点 macro-F1 | 任意标点断句 F1 | 句末边界 F1 |
 | --- | ---: | ---: | ---: | ---: |

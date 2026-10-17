@@ -1,8 +1,8 @@
-# 任务二：长文本滑窗与批量推理（初版）
+# 任务二：长文本滑窗与批量推理
 
 任务二使用任务一 `task1-v2.0` 的通用中文 BERT 主模型，独立实现长文本断句标点推理。源码、uv 环境、配置、测试和运行结果均与任务一分开，不重新训练模型。
 
-当前已完成滑窗初版、句长指导的上下文预算和 batch 扩展三阶段工作，见[阶段总结](reports/stage-summary.md)。下一阶段的[跨窗口概率融合计划](docs/next-stage-plan.md)已整理，尚未开始实现或实验。
+滑窗初版、句长指导的上下文预算和 batch 扩展三阶段结果见[阶段总结](reports/stage-summary.md)。跨窗口概率融合已完成实现、开发集参数选择及测试，详见下方章节和[实验报告](reports/cclue-window-fusion-v0.4-optimized/experiment.md)。
 
 初版已完成 19 项工程测试、独立模型验证、短片段质量回归及两种窗长的全量性能对照，见 [初版实验结果汇总](reports/initial-summary.md)。256-token、batch=16 相对相同窗口的 batch=1 加速 8.92 倍，相对句号推进串行方法加速 9.57 倍；长文标点 micro-F1 为 68.48%，比句号串行方案低约 0.16 个百分点。
 
@@ -105,6 +105,44 @@ uv run --locked --offline python analysis/audit_batch_study.py
 
 本轮已完成 26 个开发集条件、10 个测试集条件，共 180 次正式测量。开发集选定 batch 为 original256=16、median222=32、quality256=16、teacher400=16；batch=64 虽均可运行，但未取得最佳整体耗时。median222-b32 的测试 micro-F1 为 68.509%，中位耗时 2.142 秒，相对对应串行参考加速 10.88 倍。H=49 的开发集优势未在测试集得到明确确认。详见[完整实验报告](reports/cclue-batch-scaling-v0.3/experiment.md)、[结果分析](reports/cclue-batch-scaling-v0.3/conclusions.md)、[测试集 CSV](reports/cclue-batch-scaling-v0.3/test.csv)和[独立核验](reports/cclue-batch-scaling-v0.3/validation.json)。34 项工程测试通过，任务一与已验收的预算实验保持一致。
 
+## 跨窗口概率融合
+
+实验设计见 [v0.4 方案](reports/cclue-window-fusion-v0.4-optimized/design.md)。对 median222-b32 与 original256-b16 比较整数核心输出、保留概率的核心控制、等权概率融合和中心加权融合。开发集比较线性、平方中心权重，选定后再评价测试集。各方案保持窗口位置、输入和 batch 相同，融合仅改变概率聚合。
+
+初始实现的 11 条件开发集结果保留于 `cclue-window-fusion-v0.4`，其[优化记录](reports/cclue-window-fusion-v0.4/pilot-note.md)说明每窗处理全文索引的额外成本。最终实现只处理窗口内索引，使用独立编号 `cclue-window-fusion-v0.4-optimized`；两轮开发集所有预测和概率指纹一致。
+
+```bash
+cd /home/highsun/code/GuWenBERT-PunctRestore/code/task2
+uv run --locked --offline python scripts/fusion_study.py development
+uv run --locked --offline python scripts/fusion_study.py test
+uv run --locked --offline python analysis/fusion_report.py
+uv run --locked --offline python analysis/audit_fusion_study.py
+```
+
+默认配置为 `configs/fusion-study-optimized.toml`。已完成阶段拒绝覆盖；新实验复制配置并修改 `experiment`，测量和核验用 `--config`，绘图用 `--experiment` 指定新编号。独立核验从保存的概率缓存复算融合标签、覆盖次数、权重和及质量指标，不需要 GPU。原概率、详细预测和聚合缓存位于 `outputs/task2/<实验编号>/`，不纳入 Git。
+
+最终实验完成 11 个开发集条件、9 个测试集条件，共 100 次正式测量，另保留初始实现的 55 次开发集测量。原 256/192/31、batch=16 的线性中心加权使测试 micro-F1 从 68.476% 提高到 68.652%，增益区间为 [0.087, 0.243] 个百分点；耗时增加 5.13%，相对串行加速 9.10 倍，达到预设工程条件。等权融合在两种窗口下均降低总体质量。完整结果见[实验报告](reports/cclue-window-fusion-v0.4-optimized/experiment.md)、[结果分析](reports/cclue-window-fusion-v0.4-optimized/conclusions.md)和[独立核验](reports/cclue-window-fusion-v0.4-optimized/validation.json)。46 项工程测试通过，六张图均提供 PNG、SVG、PDF。
+
+## 选择性局部复核
+
+在上一阶段 256/192/31、batch=16 的线性融合后，以交界不确定性或跨窗预测分歧筛选候选，增加一轮居中窗口批量推理，只替换交界左右各 8 字符。开发集比较名义 10%、25%、50% 预算，并设置逐文档同预算随机复核、全量复核、仅评分和串行对照。算法不读取金标准，完整设计见 [v0.5 方案](reports/cclue-selective-review-v0.5/design.md)。
+
+```bash
+cd /home/highsun/code/GuWenBERT-PunctRestore/code/task2
+uv run --locked --offline python scripts/review_study.py development
+uv run --locked --offline python scripts/review_study.py test
+uv run --locked --offline python analysis/audit_review_study.py
+uv run --locked --offline python analysis/review_report.py
+```
+
+默认配置为 `configs/review-study.toml`。先锁定开发集选择，再测试、独立核验及绘图。已完成阶段与报告拒绝覆盖；新实验复制配置并修改 `experiment`，运行和核验用 `--config`，绘图用 `--experiment` 指定新编号。独立核验重放候选评分、逐文档预算、复核归属及最终预测，原概率与详细预测保存在 `outputs/task2/cclue-selective-review-v0.5/`。
+
+本轮完成开发集 13 个条件、测试集 6 个条件，共 95 次正式测量。开发集锁定 disagreement-10，测试集实际复核 162/2,077 个交界，micro-F1 为 68.650%，相对无复核 68.652% 的差值区间为 [−0.0186, +0.0157] 个百分点，耗时增加 10.16%。相对同预算随机复核也未确认总体 F1 优势，因此保留为实验方法，不改动既有默认配置。分歧评分选中了基线错误较集中的区域，但第二遍修正错误的同时新增错误，抵消了收益。
+
+完整结果见[实验报告](reports/cclue-selective-review-v0.5/experiment.md)、[结果分析](reports/cclue-selective-review-v0.5/conclusions.md)、[测试 CSV](reports/cclue-selective-review-v0.5/test.csv)和[独立核验](reports/cclue-selective-review-v0.5/validation.json)。56 项工程测试通过，六幅图均提供 PNG、SVG、PDF。任务一和前期实验保护文件保持一致。
+
+方法演进与设计依据见[研究路线](docs/research-evolution.md)，本轮扩充工作见[v0.4～v0.5 阶段总结](reports/stage-summary-v0.5.md)。各阶段原设计、结果分析与源码快照分别保留。
+
 ## 文件与结果
 
 | 内容 | 相对 code/ 的位置 |
@@ -114,12 +152,16 @@ uv run --locked --offline python analysis/audit_batch_study.py
 | 上下文预算实验入口与配置 | `task2/scripts/context_study.py`、`task2/configs/context-study.toml` |
 | Batch 扩展实验入口与配置 | `task2/scripts/batch_study.py`、`task2/configs/batch-study.toml` |
 | Batch 实验图表与核验脚本 | `task2/analysis/batch_report.py`、`task2/analysis/audit_batch_study.py` |
+| 概率融合实现与实验入口 | `task2/src/guwenbert_task2/fusion.py`、`task2/scripts/fusion_study.py` |
+| 概率融合图表与核验 | `task2/analysis/fusion_report.py`、`task2/analysis/audit_fusion_study.py` |
+| 局部复核实现、入口与配置 | `task2/src/guwenbert_task2/review.py`、`task2/scripts/review_study.py`、`task2/configs/review-study.toml` |
+| 局部复核图表与核验 | `task2/analysis/review_report.py`、`task2/analysis/audit_review_study.py` |
 | 重建长文与片段回归集 | `data/splits/task2/cclue-long-v0.1/` |
 | 上下文预算开发集 | `data/splits/task2/cclue-dev-long-v0.2/` |
 | 数据制备摘要 | `data/processed/task2/cclue-long-v0.1/summary.json` |
 | 模型来源与验证 | `task2/reports/task1-inputs.json`、`task2/reports/verification.json` |
 | 质量及性能报告 | `task2/reports/<实验 ID>/` |
 | 详细预测、窗口和计时 | `outputs/task2/<实验 ID>/` |
-| 测试记录 | `outputs/task2/validation-v0.1/`、`outputs/task2/validation-v0.2/`、`outputs/task2/validation-v0.3/` |
+| 测试记录 | `outputs/task2/validation-v0.1/`～`validation-v0.5/`、`outputs/task2/validation-v0.4-optimized/` |
 
 派生长文、详细预测、缓存和环境不纳入 Git。模型只读复用任务一权重，实际性能结论见生成的分实验报告。

@@ -1,0 +1,93 @@
+{
+  "config": {
+    "experiment": "cclue-selective-review-v0.5",
+    "model_experiment": "cclue-bert-base-v2",
+    "task1_tag": "task1-v2.0",
+    "dataset_version": "cclue-dev-long-v0.2",
+    "test_dataset_version": "cclue-long-v0.1",
+    "protected_checkpoint": "task2/reports/checkpoints/fusion-v0.4-completed.json",
+    "max_length": 256,
+    "core_tokens": 192,
+    "batch_size": 16,
+    "batch_sizes": [
+      16
+    ],
+    "warmup_runs": 1,
+    "repetitions": 5,
+    "boundary_margin": 8,
+    "review_radius": 8,
+    "review_max_length": 256,
+    "precision": "bf16",
+    "num_threads": 4,
+    "seed": 20261019,
+    "bootstrap_samples": 2000,
+    "fractions": [
+      0.1,
+      0.25,
+      0.5
+    ],
+    "selectors": [
+      "uncertainty",
+      "disagreement",
+      "random"
+    ],
+    "selection_quality_tolerance_pp": 0.02,
+    "selection_slowdown_limit": 1.25,
+    "practical_slowdown_limit": 1.25
+  },
+  "selected": {
+    "condition": {
+      "id": "disagreement-10",
+      "mode": "review",
+      "selector": "disagreement",
+      "fraction": 0.1
+    },
+    "development_micro_f1": 0.658461856237951,
+    "cost_limit_satisfied": true,
+    "eligible_conditions": [
+      "uncertainty-10",
+      "uncertainty-25",
+      "disagreement-10",
+      "disagreement-25"
+    ]
+  },
+  "source_files_sha256": {
+    "task2/configs/batch-study.toml": "5154374096bf6826fc059daf2f9bcd8e4eb25f5e25fa2095899a8ab43a377499",
+    "task2/configs/context-study.toml": "a87c23d441e2cf0292b576b16e0f05ae421cbd998c7b58afe39829d35d784613",
+    "task2/configs/fusion-study-optimized.toml": "4a9c443a14e26e1966d8c3cd83eda41e8392fa9ff3091627f2ff9d2dc07675b5",
+    "task2/configs/fusion-study.toml": "e37a228ecf3483ef9d8529c3aad812bef6d558e56d69e9ec676b67ced08cfcae",
+    "task2/configs/initial.toml": "581dbd09704cf9ff1553593a1d6c02f6271328ecc4848084fb35428cf534519a",
+    "task2/configs/review-study.toml": "6c986221064e49a726dda74c626e4a140083a9145effc3be531314f9dfeab98d",
+    "task2/configs/window400.toml": "bed87e4d4549508cc5ccc78a32de975c645357af9ca96eaf33e6b67de13b9ced",
+    "task2/pyproject.toml": "0148d846125cb5d243ff2cf01cc6ab639b14b2d4c13326db4b8c0de44fc942a7",
+    "task2/scripts/batch_study.py": "aa087891558194d0ffc7cf371472e113f43e9cb2b69d5461f1de1b259ea3f423",
+    "task2/scripts/context_study.py": "40a9182a2152f3f9274eb5fb3170b6083a4ccd9e79f292bb5a3f2f7761bd08e2",
+    "task2/scripts/fusion_study.py": "8a203161625c83ec82ea17d65614676af6b590306843c6a830f8fd9aad080a9e",
+    "task2/scripts/review_study.py": "156f2da7fdaa365c37049be260c81fae090b2781dd43ef662c4c37cee7e877fe",
+    "task2/scripts/run.py": "453c7af95cd094c7e5f29f0ea52db4ac0d429fe75303f0aed8cbebb12e4c8c0e",
+    "task2/src/guwenbert_task2/__init__.py": "00846132324bf6632fa7e58e1dc861e7c7a80fc4267c83875b78ebd4ce237d05",
+    "task2/src/guwenbert_task2/batch_study.py": "ffd54a3002f46ff747ba69662b352bfacfddc10443ed1047a83968b0ba3811c6",
+    "task2/src/guwenbert_task2/cli.py": "80180d088b6996b08dc2246ee5dad21694e3d70d7004d864d3c6f4fb4e29de2a",
+    "task2/src/guwenbert_task2/common.py": "2cbe683986cac7d47d984b71ad54bb4fdd17238265d4f380d22abd0f529dc0e1",
+    "task2/src/guwenbert_task2/context_figures.py": "fcdc73ceb291ff9ecb1702c4c2731352c404aee60831dd596451228fd5d6b23d",
+    "task2/src/guwenbert_task2/context_study.py": "e5dc972924354127ea0ef947a5e49a94e3be5e300c42a2a0c5e0c15ccb0a715f",
+    "task2/src/guwenbert_task2/data.py": "8bf88649dfc27f6d46ddb902205a6fce87ef9473d900ab5013bd1410865b129a",
+    "task2/src/guwenbert_task2/engine.py": "c4016103f519170f52f07a9f5da9dcb714896f0d3aee0d332361504ebc012fa1",
+    "task2/src/guwenbert_task2/fusion.py": "e684d8c5e8d8f54c9f83850deba31525f9e254e9ab0a4b05f182a69e3ed9b4c3",
+    "task2/src/guwenbert_task2/fusion_study.py": "724f6d1cff856dfd7042cfc9b4adccd62f6328397c2108b30abbf6963bda9a42",
+    "task2/src/guwenbert_task2/metrics.py": "0b82409c8fcd4e9a822d3d61719b3d36058c568649ad1d2ea4a8346a87ccca07",
+    "task2/src/guwenbert_task2/review.py": "a223eb6b1268d4fdb324baee48f809d8c994aa8dc5db48dfd2224525a1fc8b08",
+    "task2/src/guwenbert_task2/review_study.py": "7096f1a4e2df2018877a77ff942e7ead8335464b1c9239c6295a34d2021bbb26",
+    "task2/src/guwenbert_task2/runtime.py": "3670c4e7b234c3f06d962fa7d2ba35db72da95cf59cfecc28b84715636c13d66",
+    "task2/src/guwenbert_task2/windows.py": "314d539ffbb0de27fd498e2776bd312e925b55f15237e56d2494cef7380aa125",
+    "task2/uv.lock": "45d6fbc4345f4c7f39e9424998f1a929b1a8b78dec6d5bcc455d6b424bf615ab",
+    "task2/tests/test_batch_study.py": "0eae90ef124de91ffb4da812c26413660f9a668f5b6201a9586cc2d56c5be88c",
+    "task2/tests/test_context_study.py": "625e6c2cc97291f0c375a27ed3a25443d788998f93ae221fdde1eac24e95a6bc",
+    "task2/tests/test_data_metrics.py": "96a0263cdb4774f73d7c69e56dea60dd6046b2289f220e1de59e22cf0ebf94d3",
+    "task2/tests/test_fusion.py": "c076450ae84e0c3d821fca62a94701e589da182096eb68b5a4c8d746bbedcdf4",
+    "task2/tests/test_review.py": "488a16af850c65ebab6cb463e8f9e68251fa7038435a15e387bf4d0549965a9b",
+    "task2/tests/test_windows_engine.py": "94102acc91f8321af22b594a22dddcf671a5c766ece21a16a5c23ba75b70ea0f"
+  },
+  "development_results_sha256": "a8ffcff5f7a9fd22c4c8784e07d4a98d687f6b7c615b226f7faea5c62b72a081",
+  "test_labels_used": false
+}

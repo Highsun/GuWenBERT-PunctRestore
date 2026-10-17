@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "condition": "baseline",
+      "review_windows": 0,
+      "candidates": 16,
+      "reviewed_characters": 0
+    },
+    {
+      "condition": "score-only",
+      "review_windows": 0,
+      "candidates": 16,
+      "reviewed_characters": 0
+    },
+    {
+      "condition": "uncertainty-10",
+      "review_windows": 1,
+      "candidates": 16,
+      "reviewed_characters": 16
+    },
+    {
+      "condition": "disagreement-10",
+      "review_windows": 1,
+      "candidates": 16,
+      "reviewed_characters": 16
+    },
+    {
+      "condition": "all-review",
+      "review_windows": 16,
+      "candidates": 16,
+      "reviewed_characters": 256
+    }
+  ],
+  "long_input_characters": 3200,
+  "baseline_matches_previous_fusion": true,
+  "unreviewed_characters_unchanged": true,
+  "task1_unchanged": true
+}

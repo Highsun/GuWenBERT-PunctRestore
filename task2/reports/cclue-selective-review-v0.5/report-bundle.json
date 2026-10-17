@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "inputs_sha256": {
+    "task2/reports/cclue-selective-review-v0.5/development.json": "a8ffcff5f7a9fd22c4c8784e07d4a98d687f6b7c615b226f7faea5c62b72a081",
+    "task2/reports/cclue-selective-review-v0.5/test.json": "2b975b97258821d900ab2a987d991152b29ba8600263e1df8b3fa7bd7caade9e",
+    "task2/reports/cclue-selective-review-v0.5/selection.json": "30bcee37d82c077daa9af04e338a5bad8c2cf32b54e09a0c042849592150697f",
+    "task2/reports/cclue-selective-review-v0.5/validation.json": "c7a60e00b616480e02a1d9756baadbc61c48e13c0d80dc8703afdef7ff51123e"
+  },
+  "files_sha256": {
+    "task2/reports/cclue-selective-review-v0.5/figures/01_development_quality.png": "fa5441c25c9d68358703b825812f223525ba9cca5d611a84d8415c6b706de09f",
+    "task2/reports/cclue-selective-review-v0.5/figures/01_development_quality.svg": "bd89c00eb67310b62de6233440f0901383b201a4d7b1e3a1bb8fbb2e75e0ee69",
+    "task2/reports/cclue-selective-review-v0.5/figures/01_development_quality.pdf": "2c566aa4bb626b006cc24a4c2f76f25dce37adc4f82d59ea80234cbe1bc4da01",
+    "task2/reports/cclue-selective-review-v0.5/figures/02_development_cost.png": "0156c8a099e84ecd0f1d346ca386c61725b603816c85de6c40407580432e1396",
+    "task2/reports/cclue-selective-review-v0.5/figures/02_development_cost.svg": "db0a3372b969b789cec9d1008de8f519bf2118877f32bd3275e27b91269c0518",
+    "task2/reports/cclue-selective-review-v0.5/figures/02_development_cost.pdf": "96aef7e29256b7a7a86a8212f39345dbc73c68efb6b7bdd5d19b78002600f0d0",
+    "task2/reports/cclue-selective-review-v0.5/figures/03_test_effect.png": "0a670077a2d419b99935a2498363c51a804200a8d24c2e6090c189da196c2897",
+    "task2/reports/cclue-selective-review-v0.5/figures/03_test_effect.svg": "03efc5b1e9b6b12925014f713f15212f2498fe6563ad1a9918b13d2d2a6f0ee3",
+    "task2/reports/cclue-selective-review-v0.5/figures/03_test_effect.pdf": "cc2c21b15bd9d1a40bcd68da5ea8032d0ed966dab01acdaf1669ad6ca1ac2f34",
+    "task2/reports/cclue-selective-review-v0.5/figures/04_test_tradeoff.png": "874a4f439cb2d2def7382802639ae79a270b93377110ecc9783f2b7a619de7b6",
+    "task2/reports/cclue-selective-review-v0.5/figures/04_test_tradeoff.svg": "d69bd00a092b824b4fb75719abf4cd57ad9c3d99e88136196858f18548e2b4ab",
+    "task2/reports/cclue-selective-review-v0.5/figures/04_test_tradeoff.pdf": "44c445ec6000f3568e284245bad2b63545c93c527581ab6fe93aa8b85d15a0a8",
+    "task2/reports/cclue-selective-review-v0.5/figures/05_stage_cost.png": "75ec7bf78569e4814ba2d850c6c0d012cc0865bfe018cc08368b9d20cc363c42",
+    "task2/reports/cclue-selective-review-v0.5/figures/05_stage_cost.svg": "34d1588988e4ee89d7c18f323747f4d938df69f72427ae7400dde17a7e5d2d6d",
+    "task2/reports/cclue-selective-review-v0.5/figures/05_stage_cost.pdf": "b3a2d973274095fe1c3b38275ce32fb76ad15f3ad5abaf3f67407999150c7f7e",
+    "task2/reports/cclue-selective-review-v0.5/figures/06_review_diagnostics.png": "f9985caa630a4c8433d6e13aa866a1f3ced5cc8ab23f99802887fb147201071b",
+    "task2/reports/cclue-selective-review-v0.5/figures/06_review_diagnostics.svg": "dcdb05ff1d533513c9bc46eee7ea1fbb1bfa14d200137a203fe586745093036f",
+    "task2/reports/cclue-selective-review-v0.5/figures/06_review_diagnostics.pdf": "8fb730d7952b3333e755d76a192f462e461d32c223f4abd3045694300b628213",
+    "task2/reports/cclue-selective-review-v0.5/experiment.md": "e637a5899f5a39144b407845b9515177c0dff4f5e5923366e44d2b3171f55cc6"
+  },
+  "analysis_script": {
+    "path": "task2/analysis/review_report.py",
+    "sha256": "1e4ce3bd2d4dd154e25fabd3addbaf5919d99146e93b1769324d3ad57dd0ab52"
+  }
+}

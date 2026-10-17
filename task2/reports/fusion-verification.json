@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "window": "median222",
+      "mode": "prob-core",
+      "power": 0,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "8db3e1dabfa4410ef0f5147754854fa972df956bf1c1bb412d1b81dfbc105deb"
+    },
+    {
+      "window": "median222",
+      "mode": "uniform",
+      "power": 0,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "8db3e1dabfa4410ef0f5147754854fa972df956bf1c1bb412d1b81dfbc105deb"
+    },
+    {
+      "window": "median222",
+      "mode": "weighted",
+      "power": 1,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "8db3e1dabfa4410ef0f5147754854fa972df956bf1c1bb412d1b81dfbc105deb"
+    },
+    {
+      "window": "median222",
+      "mode": "weighted",
+      "power": 2,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "8db3e1dabfa4410ef0f5147754854fa972df956bf1c1bb412d1b81dfbc105deb"
+    },
+    {
+      "window": "original256",
+      "mode": "prob-core",
+      "power": 0,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "be7de38269e4b8d904b40d7037cac8d728a60fd394e0085b7919752c6423ad01"
+    },
+    {
+      "window": "original256",
+      "mode": "uniform",
+      "power": 0,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "be7de38269e4b8d904b40d7037cac8d728a60fd394e0085b7919752c6423ad01"
+    },
+    {
+      "window": "original256",
+      "mode": "weighted",
+      "power": 1,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "be7de38269e4b8d904b40d7037cac8d728a60fd394e0085b7919752c6423ad01"
+    },
+    {
+      "window": "original256",
+      "mode": "weighted",
+      "power": 2,
+      "windows": 18,
+      "characters": 3216,
+      "probability_sha256": "be7de38269e4b8d904b40d7037cac8d728a60fd394e0085b7919752c6423ad01"
+    }
+  ],
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "torch": "2.9.1+cu128",
+    "transformers": "4.57.6",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "gpu_total_bytes": 12792037376,
+    "precision": "bf16",
+    "threads": 4,
+    "attention": "sdpa",
+    "training_max_length": 256,
+    "inference_max_length": 256
+  },
+  "task1_unchanged": true,
+  "previous_experiments_unchanged": true
+}
